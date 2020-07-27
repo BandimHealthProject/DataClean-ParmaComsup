@@ -202,6 +202,18 @@
         "_row_num": 15
       },
       {
+        "type": "note",
+        "display": {
+          "prompt": {
+            "text": {
+              "english": "Par Mamar:",
+              "default": "Par Mamar:"
+            }
+          }
+        },
+        "_row_num": 16
+      },
+      {
         "type": "select_one",
         "values_list": "YesNoUM",
         "name": "PARMAM",
@@ -213,12 +225,12 @@
             }
           }
         },
-        "_row_num": 16
+        "_row_num": 17
       },
       {
         "clause": "if",
         "condition": "data('PARMAM') == '1'",
-        "_row_num": 17
+        "_row_num": 18
       },
       {
         "type": "adate",
@@ -241,18 +253,18 @@
           }
         },
         "constraint": "adate.diffInDays(data('DATEX'), data('DAPAMA'))<1 || adate.hasUncertainty(data('DAPAMA'))",
-        "_row_num": 18
+        "_row_num": 19
       },
       {
         "type": "select_multiple",
         "values_list": "dontknowdate",
         "name": "dapamans",
-        "_row_num": 19
+        "_row_num": 20
       },
       {
         "clause": "if",
         "condition": "data('dapamans') != null",
-        "_row_num": 20
+        "_row_num": 21
       },
       {
         "type": "integer",
@@ -265,16 +277,12 @@
             }
           }
         },
-        "_row_num": 21
+        "_row_num": 22
       },
       {
         "type": "assign",
         "name": "DAPAMA",
         "calculation": "data('dapamans')",
-        "_row_num": 22
-      },
-      {
-        "clause": "end if",
         "_row_num": 23
       },
       {
@@ -282,21 +290,37 @@
         "_row_num": 24
       },
       {
-        "clause": "end screen",
+        "clause": "end if",
         "_row_num": 25
       },
       {
-        "clause": "end if",
+        "clause": "end screen",
         "_row_num": 26
+      },
+      {
+        "clause": "end if",
+        "_row_num": 27
       },
       {
         "clause": "if",
         "condition": "data('E_COMSUP') == '1'",
-        "_row_num": 27
+        "_row_num": 28
       },
       {
         "clause": "begin screen",
-        "_row_num": 28
+        "_row_num": 29
+      },
+      {
+        "type": "note",
+        "display": {
+          "prompt": {
+            "text": {
+              "english": "Com Sup.:",
+              "default": "Com Sup.:"
+            }
+          }
+        },
+        "_row_num": 30
       },
       {
         "type": "select_one",
@@ -310,12 +334,12 @@
             }
           }
         },
-        "_row_num": 29
+        "_row_num": 31
       },
       {
         "clause": "if",
         "condition": "data('COMSUP') == '1'",
-        "_row_num": 30
+        "_row_num": 32
       },
       {
         "type": "adate",
@@ -338,18 +362,18 @@
           }
         },
         "constraint": "adate.diffInDays(data('DATEX'), data('DACOMSUP'))<1 || adate.hasUncertainty(data('DACOMSUP'))",
-        "_row_num": 31
+        "_row_num": 33
       },
       {
         "type": "select_multiple",
         "values_list": "dontknowdate",
         "name": "dacomsupns",
-        "_row_num": 32
+        "_row_num": 34
       },
       {
         "clause": "if",
         "condition": "data('dacomsupns') != null",
-        "_row_num": 33
+        "_row_num": 35
       },
       {
         "type": "integer",
@@ -362,29 +386,29 @@
             }
           }
         },
-        "_row_num": 34
+        "_row_num": 36
       },
       {
         "type": "assign",
         "name": "DACOMSUP",
         "calculation": "data('dacomsupns')",
-        "_row_num": 35
-      },
-      {
-        "clause": "end if",
-        "_row_num": 36
-      },
-      {
-        "clause": "end if",
         "_row_num": 37
       },
       {
-        "clause": "end screen",
+        "clause": "end if",
         "_row_num": 38
       },
       {
         "clause": "end if",
         "_row_num": 39
+      },
+      {
+        "clause": "end screen",
+        "_row_num": 40
+      },
+      {
+        "clause": "end if",
+        "_row_num": 41
       }
     ],
     "choices": [
@@ -992,7 +1016,7 @@
         "valuesList": "YesNoUM",
         "_defn": [
           {
-            "_row_num": 29,
+            "_row_num": 31,
             "section_name": "survey"
           },
           {
@@ -1012,7 +1036,7 @@
         "__rowNum__": 1,
         "_defn": [
           {
-            "_row_num": 31,
+            "_row_num": 33,
             "section_name": "survey"
           },
           {
@@ -1032,7 +1056,7 @@
         "valuesList": "dontknowdate",
         "_defn": [
           {
-            "_row_num": 32,
+            "_row_num": 34,
             "section_name": "survey"
           },
           {
@@ -1052,7 +1076,7 @@
         "__rowNum__": 1,
         "_defn": [
           {
-            "_row_num": 18,
+            "_row_num": 19,
             "section_name": "survey"
           },
           {
@@ -1072,7 +1096,7 @@
         "valuesList": "dontknowdate",
         "_defn": [
           {
-            "_row_num": 19,
+            "_row_num": 20,
             "section_name": "survey"
           },
           {
@@ -1120,7 +1144,7 @@
         "type": "integer",
         "_defn": [
           {
-            "_row_num": 34,
+            "_row_num": 36,
             "section_name": "survey"
           },
           {
@@ -1135,7 +1159,7 @@
         "type": "integer",
         "_defn": [
           {
-            "_row_num": 21,
+            "_row_num": 22,
             "section_name": "survey"
           },
           {
@@ -1151,7 +1175,7 @@
         "valuesList": "YesNoUM",
         "_defn": [
           {
-            "_row_num": 16,
+            "_row_num": 17,
             "section_name": "survey"
           },
           {
@@ -1344,6 +1368,23 @@
             "promptIdx": 9
           },
           {
+            "type": "note",
+            "display": {
+              "prompt": {
+                "text": {
+                  "english": "Par Mamar:",
+                  "default": "Par Mamar:"
+                }
+              }
+            },
+            "_row_num": 16,
+            "__rowNum__": 15,
+            "_token_type": "prompt",
+            "_type": "note",
+            "_branch_label_enclosing_screen": "survey/_screen15",
+            "promptIdx": 10
+          },
+          {
             "type": "select_one",
             "values_list": "YesNoUM",
             "name": "PARMAM",
@@ -1355,12 +1396,12 @@
                 }
               }
             },
-            "_row_num": 16,
-            "__rowNum__": 15,
+            "_row_num": 17,
+            "__rowNum__": 16,
             "_token_type": "prompt",
             "_type": "select_one",
             "_branch_label_enclosing_screen": "survey/_screen15",
-            "promptIdx": 10
+            "promptIdx": 11
           },
           {
             "type": "adate",
@@ -1383,23 +1424,23 @@
               }
             },
             "constraint": "adate.diffInDays(data('DATEX'), data('DAPAMA'))<1 || adate.hasUncertainty(data('DAPAMA'))",
-            "_row_num": 18,
-            "__rowNum__": 17,
+            "_row_num": 19,
+            "__rowNum__": 18,
             "_token_type": "prompt",
             "_type": "adate",
             "_branch_label_enclosing_screen": "survey/_screen15",
-            "promptIdx": 11
+            "promptIdx": 12
           },
           {
             "type": "select_multiple",
             "values_list": "dontknowdate",
             "name": "dapamans",
-            "_row_num": 19,
-            "__rowNum__": 18,
+            "_row_num": 20,
+            "__rowNum__": 19,
             "_token_type": "prompt",
             "_type": "select_multiple",
             "_branch_label_enclosing_screen": "survey/_screen15",
-            "promptIdx": 12
+            "promptIdx": 13
           },
           {
             "type": "integer",
@@ -1412,12 +1453,29 @@
                 }
               }
             },
-            "_row_num": 21,
-            "__rowNum__": 20,
+            "_row_num": 22,
+            "__rowNum__": 21,
             "_token_type": "prompt",
             "_type": "integer",
             "_branch_label_enclosing_screen": "survey/_screen15",
-            "promptIdx": 13
+            "promptIdx": 14
+          },
+          {
+            "type": "note",
+            "display": {
+              "prompt": {
+                "text": {
+                  "english": "Com Sup.:",
+                  "default": "Com Sup.:"
+                }
+              }
+            },
+            "_row_num": 30,
+            "__rowNum__": 29,
+            "_token_type": "prompt",
+            "_type": "note",
+            "_branch_label_enclosing_screen": "survey/_screen29",
+            "promptIdx": 15
           },
           {
             "type": "select_one",
@@ -1431,12 +1489,12 @@
                 }
               }
             },
-            "_row_num": 29,
-            "__rowNum__": 28,
+            "_row_num": 31,
+            "__rowNum__": 30,
             "_token_type": "prompt",
             "_type": "select_one",
-            "_branch_label_enclosing_screen": "survey/_screen28",
-            "promptIdx": 14
+            "_branch_label_enclosing_screen": "survey/_screen29",
+            "promptIdx": 16
           },
           {
             "type": "adate",
@@ -1459,23 +1517,23 @@
               }
             },
             "constraint": "adate.diffInDays(data('DATEX'), data('DACOMSUP'))<1 || adate.hasUncertainty(data('DACOMSUP'))",
-            "_row_num": 31,
-            "__rowNum__": 30,
+            "_row_num": 33,
+            "__rowNum__": 32,
             "_token_type": "prompt",
             "_type": "adate",
-            "_branch_label_enclosing_screen": "survey/_screen28",
-            "promptIdx": 15
+            "_branch_label_enclosing_screen": "survey/_screen29",
+            "promptIdx": 17
           },
           {
             "type": "select_multiple",
             "values_list": "dontknowdate",
             "name": "dacomsupns",
-            "_row_num": 32,
-            "__rowNum__": 31,
+            "_row_num": 34,
+            "__rowNum__": 33,
             "_token_type": "prompt",
             "_type": "select_multiple",
-            "_branch_label_enclosing_screen": "survey/_screen28",
-            "promptIdx": 16
+            "_branch_label_enclosing_screen": "survey/_screen29",
+            "promptIdx": 18
           },
           {
             "type": "integer",
@@ -1488,26 +1546,26 @@
                 }
               }
             },
-            "_row_num": 34,
-            "__rowNum__": 33,
+            "_row_num": 36,
+            "__rowNum__": 35,
             "_token_type": "prompt",
             "_type": "integer",
-            "_branch_label_enclosing_screen": "survey/_screen28",
-            "promptIdx": 17
+            "_branch_label_enclosing_screen": "survey/_screen29",
+            "promptIdx": 19
           },
           {
             "_token_type": "prompt",
             "type": "contents",
             "_type": "contents",
-            "_row_num": 40,
-            "_branch_label_enclosing_screen": "survey/_screen40",
-            "promptIdx": 18
+            "_row_num": 42,
+            "_branch_label_enclosing_screen": "survey/_screen42",
+            "promptIdx": 20
           }
         ],
         "validation_tag_map": {
           "finalize": [
-            11,
-            15
+            12,
+            17
           ]
         },
         "operations": [
@@ -1537,8 +1595,8 @@
           {
             "clause": "end if",
             "_token_type": "goto_label",
-            "_branch_label": "_else26",
-            "_row_num": 26,
+            "_branch_label": "_else27",
+            "_row_num": 27,
             "operationIdx": 2
           },
           {
@@ -1548,67 +1606,67 @@
             "_token_type": "begin_screen",
             "_end_screen_clause": {
               "clause": "end screen",
-              "_row_num": 25,
-              "__rowNum__": 24,
+              "_row_num": 26,
+              "__rowNum__": 25,
               "_token_type": "end_screen"
             },
-            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(10);\nif (data('PARMAM') == '1') {\nactivePromptIndicies.push(11);\nactivePromptIndicies.push(12);\nif (data('dapamans') != null) {\nactivePromptIndicies.push(13);\nassign('DAPAMA', data('dapamans'));\n}\n}\n\nreturn activePromptIndicies;\n}\n",
+            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(10);\nactivePromptIndicies.push(11);\nif (data('PARMAM') == '1') {\nactivePromptIndicies.push(12);\nactivePromptIndicies.push(13);\nif (data('dapamans') != null) {\nactivePromptIndicies.push(14);\nassign('DAPAMA', data('dapamans'));\n}\n}\n\nreturn activePromptIndicies;\n}\n",
             "operationIdx": 3
           },
           {
             "clause": "end if",
             "_token_type": "goto_label",
-            "_branch_label": "_endif26",
-            "_row_num": 26,
+            "_branch_label": "_endif27",
+            "_row_num": 27,
             "operationIdx": 4
           },
           {
             "clause": "if",
             "condition": "data('E_COMSUP') == '1'",
-            "_row_num": 27,
-            "__rowNum__": 26,
+            "_row_num": 28,
+            "__rowNum__": 27,
             "_token_type": "goto_label",
-            "_branch_label": "_then27",
+            "_branch_label": "_then28",
             "operationIdx": 5
           },
           {
             "clause": "end if",
             "_token_type": "goto_label",
-            "_branch_label": "_else39",
-            "_row_num": 39,
+            "_branch_label": "_else41",
+            "_row_num": 41,
             "operationIdx": 6
           },
           {
             "clause": "begin screen",
-            "_row_num": 28,
-            "__rowNum__": 27,
+            "_row_num": 29,
+            "__rowNum__": 28,
             "_token_type": "begin_screen",
             "_end_screen_clause": {
               "clause": "end screen",
-              "_row_num": 38,
-              "__rowNum__": 37,
+              "_row_num": 40,
+              "__rowNum__": 39,
               "_token_type": "end_screen"
             },
-            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(14);\nif (data('COMSUP') == '1') {\nactivePromptIndicies.push(15);\nactivePromptIndicies.push(16);\nif (data('dacomsupns') != null) {\nactivePromptIndicies.push(17);\nassign('DACOMSUP', data('dacomsupns'));\n}\n}\n\nreturn activePromptIndicies;\n}\n",
+            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(15);\nactivePromptIndicies.push(16);\nif (data('COMSUP') == '1') {\nactivePromptIndicies.push(17);\nactivePromptIndicies.push(18);\nif (data('dacomsupns') != null) {\nactivePromptIndicies.push(19);\nassign('DACOMSUP', data('dacomsupns'));\n}\n}\n\nreturn activePromptIndicies;\n}\n",
             "operationIdx": 7
           },
           {
             "clause": "end if",
             "_token_type": "goto_label",
-            "_branch_label": "_endif39",
-            "_row_num": 39,
+            "_branch_label": "_endif41",
+            "_row_num": 41,
             "operationIdx": 8
           },
           {
             "_token_type": "exit_section",
             "clause": "exit section",
-            "_row_num": 40,
+            "_row_num": 42,
             "operationIdx": 9
           },
           {
-            "_row_num": 40,
+            "_row_num": 42,
             "_token_type": "begin_screen",
-            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(18);\n\nreturn activePromptIndicies;\n}\n",
+            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(20);\n\nreturn activePromptIndicies;\n}\n",
             "screen": {
               "hideInBackHistory": true
             },
@@ -1617,7 +1675,7 @@
           {
             "_token_type": "resume",
             "clause": "resume",
-            "_row_num": 40,
+            "_row_num": 42,
             "operationIdx": 11
           }
         ],
@@ -1625,14 +1683,14 @@
           "_screen2": 0,
           "_then14": 3,
           "_screen15": 3,
-          "_else26": 5,
-          "_endif26": 5,
-          "_then27": 7,
-          "_screen28": 7,
-          "_else39": 9,
-          "_endif39": 9,
+          "_else27": 5,
+          "_endif27": 5,
+          "_then28": 7,
+          "_screen29": 7,
+          "_else41": 9,
+          "_endif41": 9,
           "_contents": 10,
-          "_screen40": 10
+          "_screen42": 10
         }
       },
       "initial": {
@@ -2005,7 +2063,7 @@
         "valuesList": "YesNoUM",
         "_defn": [
           {
-            "_row_num": 29,
+            "_row_num": 31,
             "section_name": "survey"
           },
           {
@@ -2028,7 +2086,7 @@
         "__rowNum__": 1,
         "_defn": [
           {
-            "_row_num": 31,
+            "_row_num": 33,
             "section_name": "survey"
           },
           {
@@ -2056,7 +2114,7 @@
         "valuesList": "dontknowdate",
         "_defn": [
           {
-            "_row_num": 32,
+            "_row_num": 34,
             "section_name": "survey"
           },
           {
@@ -2082,7 +2140,7 @@
         "__rowNum__": 1,
         "_defn": [
           {
-            "_row_num": 18,
+            "_row_num": 19,
             "section_name": "survey"
           },
           {
@@ -2110,7 +2168,7 @@
         "valuesList": "dontknowdate",
         "_defn": [
           {
-            "_row_num": 19,
+            "_row_num": 20,
             "section_name": "survey"
           },
           {
@@ -2173,7 +2231,7 @@
         "type": "integer",
         "_defn": [
           {
-            "_row_num": 34,
+            "_row_num": 36,
             "section_name": "survey"
           },
           {
@@ -2191,7 +2249,7 @@
         "type": "integer",
         "_defn": [
           {
-            "_row_num": 21,
+            "_row_num": 22,
             "section_name": "survey"
           },
           {
@@ -2210,7 +2268,7 @@
         "valuesList": "YesNoUM",
         "_defn": [
           {
-            "_row_num": 16,
+            "_row_num": 17,
             "section_name": "survey"
           },
           {
