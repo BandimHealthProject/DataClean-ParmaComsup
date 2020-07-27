@@ -13,43 +13,67 @@
         <script type="text/javascript" src="../../system/tables/js/odkTables.js"></script>
         
         <script type="text/javascript" src="js/util.js"></script>
-        <script type="text/javascript" src="js/list.js"></script>
+        <script type="text/javascript" src="js/tabancaList.js"></script>
         <style>
+        .form-group {
+            margin:30px 0;
+        }
         ul {
             list-style:none;
         }
-        button.child {
-            background-color: darkseagreen;
+        button {
             text-align:left;
             font-size: x-large;
-            padding-left: 10px;
-            margin:10px;
+            margin:15px;
             height:auto;
-            width:100%;
-            color: darkslategray; 
+            width:90%;
+            border: none;
+            border-radius: 4px;
+            color: white; 
         }
-        button.checked{
-            opacity:.5;
-            background-image: url(./img/checkMarkBlack.png);
-            background-repeat: no-repeat;
-            background-position: right;
-            background-size: contain;
+        .btn1 {
+            background-color: #04162D;
+        }
+        .btn2 {
+            background-color: #07404A;
+        }
+        .btn5 {
+            background-color: #09674D;
+        }
+        .btn7 {
+            background-color: #0A8530;
+        }
+        .btn8 {
+            background-color: #1CA30B;
+        }
+        .btn11 {
+            background-color: #6CC10C;
+        }
+        .btn12 {
+            background-color: #A4D119;
+        }
+        .btn13 {
+            background-color: #DBDF31;
+        }
+        .btn14 {
+            background-color: #EBC849;
+        }
+        .btn15 {
+            background-color: #F5AE62;
+        }
+        .btn16 {
+            background-color: #FC997A;
         }
         </style>
     </head>
 
-   
-    <body>
+    <body onload="display();">
+
         <div id="main" class="container" style="height: 100vh;">
             <div class="form-group">
-                <ul id="li" style="padding:20px;">            
+                <ul id="li">            
                 </ul>
             </div>
         </div>
-        <script>
-        $(function() {
-            display();
-        });
-        </script>
     </body>
 </html>

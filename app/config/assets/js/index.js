@@ -49,77 +49,77 @@ function initButtons() {
     btn01.on("click", function() {
         var region = 1;
         var queryParams = util.setQuerystringParams(region);
-        odkTables.launchHTML(null, 'config/assets/list.html' + queryParams);
+        odkTables.launchHTML(null, 'config/assets/tabancaList.html' + queryParams);
     });
     var btn02 = $('#btn02');
     btn02.append(" <br />" + getCount(2));
     btn02.on("click", function() {
         var region = 2;
         var queryParams = util.setQuerystringParams(region);
-        odkTables.launchHTML(null, 'config/assets/list.html' + queryParams);
+        odkTables.launchHTML(null, 'config/assets/tabancaList.html' + queryParams);
     });
     var btn03 = $('#btn03');
     btn03.append(" <br />" + getCount(5));
     btn03.on("click", function() {
         var region = 5;
         var queryParams = util.setQuerystringParams(region);
-        odkTables.launchHTML(null, 'config/assets/list.html' + queryParams);
+        odkTables.launchHTML(null, 'config/assets/tabancaList.html' + queryParams);
     });
     var btn04 = $('#btn04');
     btn04.append(" <br />" + getCount(7));
     btn04.on("click", function() {
         var region = 7;
         var queryParams = util.setQuerystringParams(region);
-        odkTables.launchHTML(null, 'config/assets/list.html' + queryParams);
+        odkTables.launchHTML(null, 'config/assets/tabancaList.html' + queryParams);
     });
     var btn05 = $('#btn05');
     btn05.append(" <br />" + getCount(8));
     btn05.on("click", function() {
         var region = 8;
         var queryParams = util.setQuerystringParams(region);
-        odkTables.launchHTML(null, 'config/assets/list.html' + queryParams);
+        odkTables.launchHTML(null, 'config/assets/tabancaList.html' + queryParams);
     });
     var btn06 = $('#btn06');
     btn06.append(" <br />" + getCount(11));
     btn06.on("click", function() {
         var region = 11;
         var queryParams = util.setQuerystringParams(region);
-        odkTables.launchHTML(null, 'config/assets/list.html' + queryParams);
+        odkTables.launchHTML(null, 'config/assets/tabancaList.html' + queryParams);
     });
     var btn07 = $('#btn07');
     btn07.append(" <br />" + getCount(12));
     btn07.on("click", function() {
         var region = 12;
         var queryParams = util.setQuerystringParams(region);
-        odkTables.launchHTML(null, 'config/assets/list.html' + queryParams);
+        odkTables.launchHTML(null, 'config/assets/tabancaList.html' + queryParams);
     });
     var btn08 = $('#btn08');
     btn08.append(" <br />" + getCount(13));
     btn08.on("click", function() {
         var region = 13;
         var queryParams = util.setQuerystringParams(region);
-        odkTables.launchHTML(null, 'config/assets/list.html' + queryParams);
+        odkTables.launchHTML(null, 'config/assets/tabancaList.html' + queryParams);
     });
     var btn09 = $('#btn09');
     btn09.append(" <br />" + getCount(14));
     btn09.on("click", function() {
         var region = 14;
         var queryParams = util.setQuerystringParams(region);
-        odkTables.launchHTML(null, 'config/assets/list.html' + queryParams);
+        odkTables.launchHTML(null, 'config/assets/tabancaList.html' + queryParams);
     });
     var btn10 = $('#btn10');
     btn10.append(" <br />" + getCount(15));
     btn10.on("click", function() {
         var region = 15;
         var queryParams = util.setQuerystringParams(region);
-        odkTables.launchHTML(null, 'config/assets/list.html' + queryParams);
+        odkTables.launchHTML(null, 'config/assets/tabancaList.html' + queryParams);
     });
     var btn11 = $('#btn11');
     btn11.append(" <br />" + getCount(16));
     btn11.on("click", function() {
         var region = 16;
         var queryParams = util.setQuerystringParams(region);
-        odkTables.launchHTML(null, 'config/assets/list.html' + queryParams);
+        odkTables.launchHTML(null, 'config/assets/tabancaList.html' + queryParams);
     });
 }
 
@@ -127,8 +127,6 @@ function getCount(reg) {
     var total = children.filter(child => child.REG == reg).length;
     var checked = children.filter(x => x.savepoint=="COMPLETE" && x.REG == reg).length;
     var count = "(" + checked + "/" + total + ")";
-    console.log("total", total);
-    console.log("checked", checked);
     return count;
 }
 

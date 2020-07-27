@@ -3,46 +3,21 @@
  */
 'use strict';
 
-var children, reg;
+var children, reg, tab, displayTab;
 function display() {
     console.log("List loading");
     reg = util.getQueryParameter('region');
-
-    console.log(reg);
+    tab = util.getQueryParameter('tabanca');
+    displayTab = util.getQueryParameter('assistant');
+    
+    console.log("Preparing list whith region = " + reg + " and tabanca = " + displayTab);
     // Set the header to region choosen
-    var displayReg= setRegion(reg);
+
+    var regionName = {1: "Oio", 2: "Biombo", 5: "Gabu", 7: "Cacheu", 8: "Bafata", 11: "Quinara", 12: "Tombali", 13: "Bubaque", 14: "Bolama", 15: "Sao Domingos", 16: "MSF Bafata"};
     var head = $('#main');
-    head.prepend("<h1>" + displayReg);
+    head.prepend("<h1>" + regionName[reg] + " </br> <h3>" + displayTab);
     // populate list
     loadChildren();
-}
-
-function setRegion(reg) {
-    var regName;
-    if (reg == 1) {
-        regName = "Oio";
-    } else if (reg == 2) {
-        regName = "Biombo";
-    } else if (reg == 5) {
-        regName = "Gabu";
-    } else if (reg == 7) {
-        regName = "Cacheu";
-    } else if (reg == 8) {
-        regName = "Bafata";
-    } else if (reg == 11) {
-        regName = "Quinara";
-    } else if (reg == 12) {
-        regName = "Tombali";
-    } else if (reg == 13) {
-        regName = "Bubaque";
-    } else if (reg == 14) {
-        regName = "Bolama";
-    } else if (reg == 15) {
-        regName = "Sao Domingos";
-    } else if (reg == 16) {
-        regName = "MSF Bafata";
-    }
-    return regName;
 }
 
 function loadChildren() {
@@ -50,7 +25,7 @@ function loadChildren() {
     var varNames = "_id, _savepoint_type, DATEX, DATEX_N, DNASC, MOR, MUL, NOC, NOMECRI, NOMEMAE, REG, REGDIA, REGIDC, TAB"
     var sql = "SELECT " + varNames +
         " FROM ParmaComsup" + 
-        " WHERE REG = " + reg +
+        " WHERE REG = " + reg + " AND TAB = " + tab + 
         " ORDER BY TAB, DATEX_N, MOR, MUL";
     children = [];
     console.log("Querying database for children...");
@@ -62,6 +37,7 @@ function loadChildren() {
             var savepoint = result.getData(row,"_savepoint_type")
 
             var DATEX = result.getData(row,"DATEX");
+            var DATEX_N = result.getData(row,"DATEX_N");
             var DNASC = result.getData(row,"DNASC");
             var MOR = result.getData(row,"MOR");
             var MUL = result.getData(row,"MUL");
@@ -73,7 +49,7 @@ function loadChildren() {
             var REGIDC = result.getData(row,"REGIDC");
             var TAB = result.getData(row,"TAB");
             
-            var p = { type: 'child', rowId, savepoint, DATEX, DNASC, MOR, MUL, NOC, NOMECRI, NOMEMAE, REG, REGDIA, REGIDC, TAB};
+            var p = { type: 'child', rowId, savepoint, DATEX, DATEX_N, DNASC, MOR, MUL, NOC, NOMECRI, NOMEMAE, REG, REGDIA, REGIDC, TAB};
             children.push(p);
         }
         console.log("Children:", children)
@@ -154,7 +130,6 @@ function formatDate(adate) {
     var date = d + "/" + m + "/" + y;
     return date;
 }
-
 
 function openForm(child) {
     console.log("Preparing form for ", child);
