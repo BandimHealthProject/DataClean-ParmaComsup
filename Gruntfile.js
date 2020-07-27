@@ -1177,9 +1177,9 @@ module.exports = function (grunt) {
     function eqmInit() {
         grunt.log.writeln("Initializing phresh Lenovo E7 tablet.")
         //grunt.task.run("exec:adbshell:am force-stop org.opendatakit.".concat(apps[i]));
-        grunt.task.run("exec:adbinstall:./Tablet_Install/ODK-X_Services_v2.1.5.apk");
-        grunt.task.run("exec:adbinstall:./Tablet_Install/ODK-X_Survey_v2.1.5.apk");
-        grunt.task.run("exec:adbinstall:./Tablet_Install/ODK-X_Tables_v2.1.5.apk");
+        grunt.task.run("exec:adbinstall:./Tablet_Install/services.apk");
+        grunt.task.run("exec:adbinstall:./Tablet_Install/survey.apk");
+        grunt.task.run("exec:adbinstall:./Tablet_Install/tables.apk");
         grunt.task.run("exec:adbinstall:./Tablet_Install/OIFilemanager.apk");
         //grunt.task.run('adbpush-collect');
         grunt.task.run('adbpush-default-app');        
