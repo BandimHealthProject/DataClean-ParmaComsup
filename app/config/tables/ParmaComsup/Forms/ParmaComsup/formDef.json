@@ -263,7 +263,7 @@
       },
       {
         "clause": "if",
-        "condition": "data('dapamans') != null",
+        "condition": "data('dapamans') == \"D:NS,M:NS,Y:NS\" || data('DAPAMA') == \"D:NS,M:NS,Y:NS\"",
         "_row_num": 21
       },
       {
@@ -290,11 +290,14 @@
         "_row_num": 24
       },
       {
-        "clause": "end if",
+        "clause": "if",
+        "condition": "data('dapamans') == \"D:1,M:1,Y:1955\"",
         "_row_num": 25
       },
       {
-        "clause": "end screen",
+        "type": "assign",
+        "name": "DAPAMA",
+        "calculation": "data('dapamans')",
         "_row_num": 26
       },
       {
@@ -302,13 +305,25 @@
         "_row_num": 27
       },
       {
-        "clause": "if",
-        "condition": "data('E_COMSUP') == '1'",
+        "clause": "end if",
         "_row_num": 28
       },
       {
-        "clause": "begin screen",
+        "clause": "end screen",
         "_row_num": 29
+      },
+      {
+        "clause": "end if",
+        "_row_num": 30
+      },
+      {
+        "clause": "if",
+        "condition": "data('E_COMSUP') == '1'",
+        "_row_num": 31
+      },
+      {
+        "clause": "begin screen",
+        "_row_num": 32
       },
       {
         "type": "note",
@@ -320,7 +335,7 @@
             }
           }
         },
-        "_row_num": 30
+        "_row_num": 33
       },
       {
         "type": "select_one",
@@ -334,12 +349,12 @@
             }
           }
         },
-        "_row_num": 31
+        "_row_num": 34
       },
       {
         "clause": "if",
         "condition": "data('COMSUP') == '1'",
-        "_row_num": 32
+        "_row_num": 35
       },
       {
         "type": "adate",
@@ -362,18 +377,18 @@
           }
         },
         "constraint": "adate.diffInDays(data('DATEX'), data('DACOMSUP'))<1 || adate.hasUncertainty(data('DACOMSUP'))",
-        "_row_num": 33
+        "_row_num": 36
       },
       {
         "type": "select_multiple",
         "values_list": "dontknowdate",
         "name": "dacomsupns",
-        "_row_num": 34
+        "_row_num": 37
       },
       {
         "clause": "if",
-        "condition": "data('dacomsupns') != null",
-        "_row_num": 35
+        "condition": "data('dacomsupns')  == \"D:NS,M:NS,Y:NS\"  || data('DACOMSUP')  == \"D:NS,M:NS,Y:NS\"",
+        "_row_num": 38
       },
       {
         "type": "integer",
@@ -386,29 +401,44 @@
             }
           }
         },
-        "_row_num": 36
+        "_row_num": 39
       },
       {
         "type": "assign",
         "name": "DACOMSUP",
         "calculation": "data('dacomsupns')",
-        "_row_num": 37
-      },
-      {
-        "clause": "end if",
-        "_row_num": 38
-      },
-      {
-        "clause": "end if",
-        "_row_num": 39
-      },
-      {
-        "clause": "end screen",
         "_row_num": 40
       },
       {
         "clause": "end if",
         "_row_num": 41
+      },
+      {
+        "clause": "if",
+        "condition": "data('dacomsupns')  == \"D:1,M:1,Y:1955\"",
+        "_row_num": 42
+      },
+      {
+        "type": "assign",
+        "name": "DACOMSUP",
+        "calculation": "data('dacomsupns')",
+        "_row_num": 43
+      },
+      {
+        "clause": "end if",
+        "_row_num": 44
+      },
+      {
+        "clause": "end if",
+        "_row_num": 45
+      },
+      {
+        "clause": "end screen",
+        "_row_num": 46
+      },
+      {
+        "clause": "end if",
+        "_row_num": 47
       }
     ],
     "choices": [
@@ -476,6 +506,19 @@
           }
         },
         "_row_num": 6
+      },
+      {
+        "choice_list_name": "dontknowdate",
+        "data_value": "D:1,M:1,Y:1955",
+        "display": {
+          "title": {
+            "text": {
+              "english": "Missing information",
+              "default": "Falta informação"
+            }
+          }
+        },
+        "_row_num": 7
       }
     ],
     "calculates": [
@@ -839,6 +882,19 @@
             }
           },
           "_row_num": 6
+        },
+        {
+          "choice_list_name": "dontknowdate",
+          "data_value": "D:1,M:1,Y:1955",
+          "display": {
+            "title": {
+              "text": {
+                "english": "Missing information",
+                "default": "Falta informação"
+              }
+            }
+          },
+          "_row_num": 7
         }
       ]
     },
@@ -1016,7 +1072,7 @@
         "valuesList": "YesNoUM",
         "_defn": [
           {
-            "_row_num": 31,
+            "_row_num": 34,
             "section_name": "survey"
           },
           {
@@ -1036,7 +1092,7 @@
         "__rowNum__": 1,
         "_defn": [
           {
-            "_row_num": 33,
+            "_row_num": 36,
             "section_name": "survey"
           },
           {
@@ -1056,7 +1112,7 @@
         "valuesList": "dontknowdate",
         "_defn": [
           {
-            "_row_num": 34,
+            "_row_num": 37,
             "section_name": "survey"
           },
           {
@@ -1144,7 +1200,7 @@
         "type": "integer",
         "_defn": [
           {
-            "_row_num": 36,
+            "_row_num": 39,
             "section_name": "survey"
           },
           {
@@ -1470,11 +1526,11 @@
                 }
               }
             },
-            "_row_num": 30,
-            "__rowNum__": 29,
+            "_row_num": 33,
+            "__rowNum__": 32,
             "_token_type": "prompt",
             "_type": "note",
-            "_branch_label_enclosing_screen": "survey/_screen29",
+            "_branch_label_enclosing_screen": "survey/_screen32",
             "promptIdx": 15
           },
           {
@@ -1489,11 +1545,11 @@
                 }
               }
             },
-            "_row_num": 31,
-            "__rowNum__": 30,
+            "_row_num": 34,
+            "__rowNum__": 33,
             "_token_type": "prompt",
             "_type": "select_one",
-            "_branch_label_enclosing_screen": "survey/_screen29",
+            "_branch_label_enclosing_screen": "survey/_screen32",
             "promptIdx": 16
           },
           {
@@ -1517,22 +1573,22 @@
               }
             },
             "constraint": "adate.diffInDays(data('DATEX'), data('DACOMSUP'))<1 || adate.hasUncertainty(data('DACOMSUP'))",
-            "_row_num": 33,
-            "__rowNum__": 32,
+            "_row_num": 36,
+            "__rowNum__": 35,
             "_token_type": "prompt",
             "_type": "adate",
-            "_branch_label_enclosing_screen": "survey/_screen29",
+            "_branch_label_enclosing_screen": "survey/_screen32",
             "promptIdx": 17
           },
           {
             "type": "select_multiple",
             "values_list": "dontknowdate",
             "name": "dacomsupns",
-            "_row_num": 34,
-            "__rowNum__": 33,
+            "_row_num": 37,
+            "__rowNum__": 36,
             "_token_type": "prompt",
             "_type": "select_multiple",
-            "_branch_label_enclosing_screen": "survey/_screen29",
+            "_branch_label_enclosing_screen": "survey/_screen32",
             "promptIdx": 18
           },
           {
@@ -1546,19 +1602,19 @@
                 }
               }
             },
-            "_row_num": 36,
-            "__rowNum__": 35,
+            "_row_num": 39,
+            "__rowNum__": 38,
             "_token_type": "prompt",
             "_type": "integer",
-            "_branch_label_enclosing_screen": "survey/_screen29",
+            "_branch_label_enclosing_screen": "survey/_screen32",
             "promptIdx": 19
           },
           {
             "_token_type": "prompt",
             "type": "contents",
             "_type": "contents",
-            "_row_num": 42,
-            "_branch_label_enclosing_screen": "survey/_screen42",
+            "_row_num": 48,
+            "_branch_label_enclosing_screen": "survey/_screen48",
             "promptIdx": 20
           }
         ],
@@ -1595,8 +1651,8 @@
           {
             "clause": "end if",
             "_token_type": "goto_label",
-            "_branch_label": "_else27",
-            "_row_num": 27,
+            "_branch_label": "_else30",
+            "_row_num": 30,
             "operationIdx": 2
           },
           {
@@ -1606,65 +1662,65 @@
             "_token_type": "begin_screen",
             "_end_screen_clause": {
               "clause": "end screen",
-              "_row_num": 26,
-              "__rowNum__": 25,
+              "_row_num": 29,
+              "__rowNum__": 28,
               "_token_type": "end_screen"
             },
-            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(10);\nactivePromptIndicies.push(11);\nif (data('PARMAM') == '1') {\nactivePromptIndicies.push(12);\nactivePromptIndicies.push(13);\nif (data('dapamans') != null) {\nactivePromptIndicies.push(14);\nassign('DAPAMA', data('dapamans'));\n}\n}\n\nreturn activePromptIndicies;\n}\n",
+            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(10);\nactivePromptIndicies.push(11);\nif (data('PARMAM') == '1') {\nactivePromptIndicies.push(12);\nactivePromptIndicies.push(13);\nif (data('dapamans') == \"D:NS,M:NS,Y:NS\" || data('DAPAMA') == \"D:NS,M:NS,Y:NS\") {\nactivePromptIndicies.push(14);\nassign('DAPAMA', data('dapamans'));\n}\nif (data('dapamans') == \"D:1,M:1,Y:1955\") {\nassign('DAPAMA', data('dapamans'));\n}\n}\n\nreturn activePromptIndicies;\n}\n",
             "operationIdx": 3
           },
           {
             "clause": "end if",
             "_token_type": "goto_label",
-            "_branch_label": "_endif27",
-            "_row_num": 27,
+            "_branch_label": "_endif30",
+            "_row_num": 30,
             "operationIdx": 4
           },
           {
             "clause": "if",
             "condition": "data('E_COMSUP') == '1'",
-            "_row_num": 28,
-            "__rowNum__": 27,
+            "_row_num": 31,
+            "__rowNum__": 30,
             "_token_type": "goto_label",
-            "_branch_label": "_then28",
+            "_branch_label": "_then31",
             "operationIdx": 5
           },
           {
             "clause": "end if",
             "_token_type": "goto_label",
-            "_branch_label": "_else41",
-            "_row_num": 41,
+            "_branch_label": "_else47",
+            "_row_num": 47,
             "operationIdx": 6
           },
           {
             "clause": "begin screen",
-            "_row_num": 29,
-            "__rowNum__": 28,
+            "_row_num": 32,
+            "__rowNum__": 31,
             "_token_type": "begin_screen",
             "_end_screen_clause": {
               "clause": "end screen",
-              "_row_num": 40,
-              "__rowNum__": 39,
+              "_row_num": 46,
+              "__rowNum__": 45,
               "_token_type": "end_screen"
             },
-            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(15);\nactivePromptIndicies.push(16);\nif (data('COMSUP') == '1') {\nactivePromptIndicies.push(17);\nactivePromptIndicies.push(18);\nif (data('dacomsupns') != null) {\nactivePromptIndicies.push(19);\nassign('DACOMSUP', data('dacomsupns'));\n}\n}\n\nreturn activePromptIndicies;\n}\n",
+            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(15);\nactivePromptIndicies.push(16);\nif (data('COMSUP') == '1') {\nactivePromptIndicies.push(17);\nactivePromptIndicies.push(18);\nif (data('dacomsupns')  == \"D:NS,M:NS,Y:NS\"  || data('DACOMSUP')  == \"D:NS,M:NS,Y:NS\") {\nactivePromptIndicies.push(19);\nassign('DACOMSUP', data('dacomsupns'));\n}\nif (data('dacomsupns')  == \"D:1,M:1,Y:1955\") {\nassign('DACOMSUP', data('dacomsupns'));\n}\n}\n\nreturn activePromptIndicies;\n}\n",
             "operationIdx": 7
           },
           {
             "clause": "end if",
             "_token_type": "goto_label",
-            "_branch_label": "_endif41",
-            "_row_num": 41,
+            "_branch_label": "_endif47",
+            "_row_num": 47,
             "operationIdx": 8
           },
           {
             "_token_type": "exit_section",
             "clause": "exit section",
-            "_row_num": 42,
+            "_row_num": 48,
             "operationIdx": 9
           },
           {
-            "_row_num": 42,
+            "_row_num": 48,
             "_token_type": "begin_screen",
             "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(20);\n\nreturn activePromptIndicies;\n}\n",
             "screen": {
@@ -1675,7 +1731,7 @@
           {
             "_token_type": "resume",
             "clause": "resume",
-            "_row_num": 42,
+            "_row_num": 48,
             "operationIdx": 11
           }
         ],
@@ -1683,14 +1739,14 @@
           "_screen2": 0,
           "_then14": 3,
           "_screen15": 3,
-          "_else27": 5,
-          "_endif27": 5,
-          "_then28": 7,
-          "_screen29": 7,
-          "_else41": 9,
-          "_endif41": 9,
+          "_else30": 5,
+          "_endif30": 5,
+          "_then31": 7,
+          "_screen32": 7,
+          "_else47": 9,
+          "_endif47": 9,
           "_contents": 10,
-          "_screen42": 10
+          "_screen48": 10
         }
       },
       "initial": {
@@ -2063,7 +2119,7 @@
         "valuesList": "YesNoUM",
         "_defn": [
           {
-            "_row_num": 31,
+            "_row_num": 34,
             "section_name": "survey"
           },
           {
@@ -2086,7 +2142,7 @@
         "__rowNum__": 1,
         "_defn": [
           {
-            "_row_num": 33,
+            "_row_num": 36,
             "section_name": "survey"
           },
           {
@@ -2114,7 +2170,7 @@
         "valuesList": "dontknowdate",
         "_defn": [
           {
-            "_row_num": 34,
+            "_row_num": 37,
             "section_name": "survey"
           },
           {
@@ -2231,7 +2287,7 @@
         "type": "integer",
         "_defn": [
           {
-            "_row_num": 36,
+            "_row_num": 39,
             "section_name": "survey"
           },
           {

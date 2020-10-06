@@ -22,11 +22,11 @@ function display() {
 
 function loadChildren() {
     // SQL to get children
-    var varNames = "_id, _savepoint_type, DATEX, DATEX_N, DNASC, MOR, MUL, NOC, NOMECRI, NOMEMAE, REG, REGDIA, REGIDC, TAB"
+    var varNames = "_id, _savepoint_type, COMSUP, DATEX, DATEX_N, DNASC, ERROR, MOR, MUL, NOC, NOMECRI, NOMEMAE, PARMAM, REG, REGDIA, REGIDC, TAB"
     var sql = "SELECT " + varNames +
         " FROM ParmaComsup" + 
         " WHERE REG = " + reg + " AND TAB = " + tab + 
-        " ORDER BY TAB, DATEX_N, MOR, MUL";
+        " ORDER BY DATEX_N, MOR, MUL, NOC";
     children = [];
     console.log("Querying database for children...");
     console.log(sql);
@@ -36,20 +36,23 @@ function loadChildren() {
             var rowId = result.getData(row,"_id"); // row ID 
             var savepoint = result.getData(row,"_savepoint_type")
 
+            var COMSUP = result.getData(row,"COMSUP");
             var DATEX = result.getData(row,"DATEX");
             var DATEX_N = result.getData(row,"DATEX_N");
             var DNASC = result.getData(row,"DNASC");
+            var ERROR = result.getData(row,"ERROR");
             var MOR = result.getData(row,"MOR");
             var MUL = result.getData(row,"MUL");
             var NOC = result.getData(row,"NOC");
             var NOMECRI = titleCase(result.getData(row,"NOMECRI"));
             var NOMEMAE = titleCase(result.getData(row,"NOMEMAE"));
+            var PARMAM = result.getData(row,"PARMAM");
             var REG = result.getData(row,"REG");
             var REGDIA = result.getData(row,"REGDIA");
             var REGIDC = result.getData(row,"REGIDC");
             var TAB = result.getData(row,"TAB");
             
-            var p = { type: 'child', rowId, savepoint, DATEX, DATEX_N, DNASC, MOR, MUL, NOC, NOMECRI, NOMEMAE, REG, REGDIA, REGIDC, TAB};
+            var p = { type: 'child', rowId, savepoint, COMSUP, DATEX, DATEX_N, DNASC, ERROR, MOR, MUL, NOC, NOMECRI, NOMEMAE, PARMAM, REG, REGDIA, REGIDC, TAB};
             children.push(p);
         }
         console.log("Children:", children)
@@ -74,7 +77,11 @@ function populateView() {
         
         // Check if already looked up
         var check = '';
-        if (this.savepoint == "COMPLETE") {
+        if (this.ERROR == 1 & this.COMSUP != null & this.savepoint == "COMPLETE") {
+            check = "checked";
+        } else if (this.ERROR == 2 & this.PARMAM != null & this.savepoint == "COMPLETE") {
+            check = "checked";
+        } else if (this.ERROR == 3 & this.COMSUP != null & this.PARMAM != null & this.savepoint == "COMPLETE") {
             check = "checked";
         };
         
@@ -114,7 +121,7 @@ function setDisplayText(child) {
         visdate = formatDate(child.DATEX);
     }
 
-    var displayText = "Reg: " + child.REG + "; Tab: " + child.TAB + "; Mor: " + child.MOR + "; Mul: " + child.MUL +  "<br />" + 
+    var displayText = "Reg: " + child.REG + "; Tab: " + child.TAB + "; Mor: " + child.MOR + "; Mul: " + child.MUL + "; Noc: " + child.NOC + "<br />" + 
         "Datex: " + visdate + "<br />" +
         "Regidc: " + child.REGIDC + "; Regdia: " + regdate + "<br />" +
         "Nomecri: " + child.NOMECRI + "<br />" +

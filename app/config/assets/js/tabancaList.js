@@ -39,7 +39,7 @@ function getTabanca(data) {
 
 function getList() {
     // SQL to get children
-    var sql = "SELECT _savepoint_type, REG, TAB FROM ParmaComsup WHERE REG = " + reg;
+    var sql = "SELECT _savepoint_type, COMSUP, ERROR, PARMAM, REG, TAB FROM ParmaComsup WHERE REG = " + reg;
     children = [];
     console.log("Querying database for children...");
     console.log(sql);
@@ -47,10 +47,24 @@ function getList() {
         console.log("Found " + result.getCount() + " children");
         for (var row = 0; row < result.getCount(); row++) {
             var savepoint = result.getData(row,"_savepoint_type")
+            
+            var COMSUP = result.getData(row,"COMSUP");
+            var ERROR = result.getData(row,"ERROR");
+            var PARMAM = result.getData(row,"PARMAM");
             var REG = result.getData(row,"REG");
             var TAB = result.getData(row,"TAB");
+            
+            // Check variable for counting
+            var check = '';
+            if (ERROR == 1 & COMSUP != null & savepoint == "COMPLETE") {
+                check = "checked";
+            } else if (ERROR == 2 & PARMAM != null & savepoint == "COMPLETE") {
+                check = "checked";
+            } else if (ERROR == 3 & COMSUP != null & PARMAM != null & savepoint == "COMPLETE") {
+                check = "checked";
+            };
 
-            var p = { type: 'child', savepoint, REG, TAB};
+            var p = { type: 'child', check, savepoint, COMSUP, ERROR, PARMAM, REG, TAB};
             children.push(p);
         }
         console.log("Children:", children)
@@ -88,7 +102,7 @@ function initButtons() {
 
 function getCount(tab) {
     var total = children.filter(child => child.REG == reg & child.TAB == tab).length;
-    var checked = children.filter(child => child.savepoint=="COMPLETE" & child.REG == reg & child.TAB == tab).length;
+    var checked = children.filter(child => child.check=="checked" & child.REG == reg & child.TAB == tab).length;
     var count = "(" + checked + "/" + total + ")";
     return count;
 }
