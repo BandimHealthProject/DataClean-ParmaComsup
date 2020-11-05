@@ -194,7 +194,7 @@
       },
       {
         "clause": "if",
-        "condition": "data('E_PARMAM') == '1'",
+        "condition": "data('E_COMSUP') == '1'",
         "_row_num": 14
       },
       {
@@ -206,136 +206,12 @@
         "display": {
           "prompt": {
             "text": {
-              "english": "Par Mamar:",
-              "default": "Par Mamar:"
-            }
-          }
-        },
-        "_row_num": 16
-      },
-      {
-        "type": "select_one",
-        "values_list": "YesNoUM",
-        "name": "PARMAM",
-        "display": {
-          "prompt": {
-            "text": {
-              "english": "Has the child stopped breastfeeding?",
-              "default": "A criança parou de tomar leite (amamentação)?"
-            }
-          }
-        },
-        "_row_num": 17
-      },
-      {
-        "clause": "if",
-        "condition": "data('PARMAM') == '1'",
-        "_row_num": 18
-      },
-      {
-        "type": "adate",
-        "name": "DAPAMA",
-        "display": {
-          "prompt": {
-            "text": {
-              "english": "Date of stopping breastfeeding",
-              "default": "Data de interrupção da amamentação"
-            }
-          },
-          "constraint_message": {
-            "text": {
-              "english": "The date of stopping breastfeeding cannot be in the future",
-              "default": "A data de interrupção da amamentação não pode ser no futuro"
-            }
-          },
-          "adate": {
-            "helperText": false
-          }
-        },
-        "constraint": "adate.diffInDays(data('DATEX'), data('DAPAMA'))<1 || adate.hasUncertainty(data('DAPAMA'))",
-        "_row_num": 19
-      },
-      {
-        "type": "select_multiple",
-        "values_list": "dontknowdate",
-        "name": "dapamans",
-        "_row_num": 20
-      },
-      {
-        "clause": "if",
-        "condition": "data('dapamans') == \"D:NS,M:NS,Y:NS\" || data('DAPAMA') == \"D:NS,M:NS,Y:NS\"",
-        "_row_num": 21
-      },
-      {
-        "type": "integer",
-        "name": "IDPAMA",
-        "display": {
-          "prompt": {
-            "text": {
-              "english": "Age of stopping breastfeeding in months",
-              "default": "Idade de interrupção da amamentação em meses"
-            }
-          }
-        },
-        "_row_num": 22
-      },
-      {
-        "type": "assign",
-        "name": "DAPAMA",
-        "calculation": "data('dapamans')",
-        "_row_num": 23
-      },
-      {
-        "clause": "end if",
-        "_row_num": 24
-      },
-      {
-        "clause": "if",
-        "condition": "data('dapamans') == \"D:1,M:1,Y:1955\"",
-        "_row_num": 25
-      },
-      {
-        "type": "assign",
-        "name": "DAPAMA",
-        "calculation": "data('dapamans')",
-        "_row_num": 26
-      },
-      {
-        "clause": "end if",
-        "_row_num": 27
-      },
-      {
-        "clause": "end if",
-        "_row_num": 28
-      },
-      {
-        "clause": "end screen",
-        "_row_num": 29
-      },
-      {
-        "clause": "end if",
-        "_row_num": 30
-      },
-      {
-        "clause": "if",
-        "condition": "data('E_COMSUP') == '1'",
-        "_row_num": 31
-      },
-      {
-        "clause": "begin screen",
-        "_row_num": 32
-      },
-      {
-        "type": "note",
-        "display": {
-          "prompt": {
-            "text": {
               "english": "Com Sup.:",
               "default": "Com Sup.:"
             }
           }
         },
-        "_row_num": 33
+        "_row_num": 16
       },
       {
         "type": "select_one",
@@ -349,12 +225,12 @@
             }
           }
         },
-        "_row_num": 34
+        "_row_num": 17
       },
       {
         "clause": "if",
         "condition": "data('COMSUP') == '1'",
-        "_row_num": 35
+        "_row_num": 18
       },
       {
         "type": "adate",
@@ -377,18 +253,18 @@
           }
         },
         "constraint": "adate.diffInDays(data('DATEX'), data('DACOMSUP'))<1 || adate.hasUncertainty(data('DACOMSUP'))",
-        "_row_num": 36
+        "_row_num": 19
       },
       {
         "type": "select_multiple",
         "values_list": "dontknowdate",
         "name": "dacomsupns",
-        "_row_num": 37
+        "_row_num": 20
       },
       {
         "clause": "if",
         "condition": "data('dacomsupns')  == \"D:NS,M:NS,Y:NS\"  || data('DACOMSUP')  == \"D:NS,M:NS,Y:NS\"",
-        "_row_num": 38
+        "_row_num": 21
       },
       {
         "type": "integer",
@@ -401,12 +277,136 @@
             }
           }
         },
-        "_row_num": 39
+        "_row_num": 22
       },
       {
         "type": "assign",
         "name": "DACOMSUP",
         "calculation": "data('dacomsupns')",
+        "_row_num": 23
+      },
+      {
+        "clause": "end if",
+        "_row_num": 24
+      },
+      {
+        "clause": "if",
+        "condition": "data('dacomsupns')  == \"D:1,M:1,Y:1955\"",
+        "_row_num": 25
+      },
+      {
+        "type": "assign",
+        "name": "DACOMSUP",
+        "calculation": "data('dacomsupns')",
+        "_row_num": 26
+      },
+      {
+        "clause": "end if",
+        "_row_num": 27
+      },
+      {
+        "clause": "end if",
+        "_row_num": 28
+      },
+      {
+        "clause": "end screen",
+        "_row_num": 29
+      },
+      {
+        "clause": "end if",
+        "_row_num": 30
+      },
+      {
+        "clause": "if",
+        "condition": "data('E_PARMAM') == '1'",
+        "_row_num": 31
+      },
+      {
+        "clause": "begin screen",
+        "_row_num": 32
+      },
+      {
+        "type": "note",
+        "display": {
+          "prompt": {
+            "text": {
+              "english": "Par Mamar:",
+              "default": "Par Mamar:"
+            }
+          }
+        },
+        "_row_num": 33
+      },
+      {
+        "type": "select_one",
+        "values_list": "YesNoUM",
+        "name": "PARMAM",
+        "display": {
+          "prompt": {
+            "text": {
+              "english": "Has the child stopped breastfeeding?",
+              "default": "A criança parou de tomar leite (amamentação)?"
+            }
+          }
+        },
+        "_row_num": 34
+      },
+      {
+        "clause": "if",
+        "condition": "data('PARMAM') == '1'",
+        "_row_num": 35
+      },
+      {
+        "type": "adate",
+        "name": "DAPAMA",
+        "display": {
+          "prompt": {
+            "text": {
+              "english": "Date of stopping breastfeeding",
+              "default": "Data de interrupção da amamentação"
+            }
+          },
+          "constraint_message": {
+            "text": {
+              "english": "The date of stopping breastfeeding cannot be in the future",
+              "default": "A data de interrupção da amamentação não pode ser no futuro"
+            }
+          },
+          "adate": {
+            "helperText": false
+          }
+        },
+        "constraint": "adate.diffInDays(data('DATEX'), data('DAPAMA'))<1 || adate.hasUncertainty(data('DAPAMA'))",
+        "_row_num": 36
+      },
+      {
+        "type": "select_multiple",
+        "values_list": "dontknowdate",
+        "name": "dapamans",
+        "_row_num": 37
+      },
+      {
+        "clause": "if",
+        "condition": "data('dapamans') == \"D:NS,M:NS,Y:NS\" || data('DAPAMA') == \"D:NS,M:NS,Y:NS\"",
+        "_row_num": 38
+      },
+      {
+        "type": "integer",
+        "name": "IDPAMA",
+        "display": {
+          "prompt": {
+            "text": {
+              "english": "Age of stopping breastfeeding in months",
+              "default": "Idade de interrupção da amamentação em meses"
+            }
+          }
+        },
+        "_row_num": 39
+      },
+      {
+        "type": "assign",
+        "name": "DAPAMA",
+        "calculation": "data('dapamans')",
         "_row_num": 40
       },
       {
@@ -415,13 +415,13 @@
       },
       {
         "clause": "if",
-        "condition": "data('dacomsupns')  == \"D:1,M:1,Y:1955\"",
+        "condition": "data('dapamans') == \"D:1,M:1,Y:1955\"",
         "_row_num": 42
       },
       {
         "type": "assign",
-        "name": "DACOMSUP",
-        "calculation": "data('dacomsupns')",
+        "name": "DAPAMA",
+        "calculation": "data('dapamans')",
         "_row_num": 43
       },
       {
@@ -1072,7 +1072,7 @@
         "valuesList": "YesNoUM",
         "_defn": [
           {
-            "_row_num": 34,
+            "_row_num": 17,
             "section_name": "survey"
           },
           {
@@ -1092,7 +1092,7 @@
         "__rowNum__": 1,
         "_defn": [
           {
-            "_row_num": 36,
+            "_row_num": 19,
             "section_name": "survey"
           },
           {
@@ -1112,7 +1112,7 @@
         "valuesList": "dontknowdate",
         "_defn": [
           {
-            "_row_num": 37,
+            "_row_num": 20,
             "section_name": "survey"
           },
           {
@@ -1132,7 +1132,7 @@
         "__rowNum__": 1,
         "_defn": [
           {
-            "_row_num": 19,
+            "_row_num": 36,
             "section_name": "survey"
           },
           {
@@ -1152,7 +1152,7 @@
         "valuesList": "dontknowdate",
         "_defn": [
           {
-            "_row_num": 20,
+            "_row_num": 37,
             "section_name": "survey"
           },
           {
@@ -1200,7 +1200,7 @@
         "type": "integer",
         "_defn": [
           {
-            "_row_num": 39,
+            "_row_num": 22,
             "section_name": "survey"
           },
           {
@@ -1215,7 +1215,7 @@
         "type": "integer",
         "_defn": [
           {
-            "_row_num": 22,
+            "_row_num": 39,
             "section_name": "survey"
           },
           {
@@ -1231,7 +1231,7 @@
         "valuesList": "YesNoUM",
         "_defn": [
           {
-            "_row_num": 17,
+            "_row_num": 34,
             "section_name": "survey"
           },
           {
@@ -1428,8 +1428,8 @@
             "display": {
               "prompt": {
                 "text": {
-                  "english": "Par Mamar:",
-                  "default": "Par Mamar:"
+                  "english": "Com Sup.:",
+                  "default": "Com Sup.:"
                 }
               }
             },
@@ -1443,99 +1443,6 @@
           {
             "type": "select_one",
             "values_list": "YesNoUM",
-            "name": "PARMAM",
-            "display": {
-              "prompt": {
-                "text": {
-                  "english": "Has the child stopped breastfeeding?",
-                  "default": "A criança parou de tomar leite (amamentação)?"
-                }
-              }
-            },
-            "_row_num": 17,
-            "__rowNum__": 16,
-            "_token_type": "prompt",
-            "_type": "select_one",
-            "_branch_label_enclosing_screen": "survey/_screen15",
-            "promptIdx": 11
-          },
-          {
-            "type": "adate",
-            "name": "DAPAMA",
-            "display": {
-              "prompt": {
-                "text": {
-                  "english": "Date of stopping breastfeeding",
-                  "default": "Data de interrupção da amamentação"
-                }
-              },
-              "constraint_message": {
-                "text": {
-                  "english": "The date of stopping breastfeeding cannot be in the future",
-                  "default": "A data de interrupção da amamentação não pode ser no futuro"
-                }
-              },
-              "adate": {
-                "helperText": false
-              }
-            },
-            "constraint": "adate.diffInDays(data('DATEX'), data('DAPAMA'))<1 || adate.hasUncertainty(data('DAPAMA'))",
-            "_row_num": 19,
-            "__rowNum__": 18,
-            "_token_type": "prompt",
-            "_type": "adate",
-            "_branch_label_enclosing_screen": "survey/_screen15",
-            "promptIdx": 12
-          },
-          {
-            "type": "select_multiple",
-            "values_list": "dontknowdate",
-            "name": "dapamans",
-            "_row_num": 20,
-            "__rowNum__": 19,
-            "_token_type": "prompt",
-            "_type": "select_multiple",
-            "_branch_label_enclosing_screen": "survey/_screen15",
-            "promptIdx": 13
-          },
-          {
-            "type": "integer",
-            "name": "IDPAMA",
-            "display": {
-              "prompt": {
-                "text": {
-                  "english": "Age of stopping breastfeeding in months",
-                  "default": "Idade de interrupção da amamentação em meses"
-                }
-              }
-            },
-            "_row_num": 22,
-            "__rowNum__": 21,
-            "_token_type": "prompt",
-            "_type": "integer",
-            "_branch_label_enclosing_screen": "survey/_screen15",
-            "promptIdx": 14
-          },
-          {
-            "type": "note",
-            "display": {
-              "prompt": {
-                "text": {
-                  "english": "Com Sup.:",
-                  "default": "Com Sup.:"
-                }
-              }
-            },
-            "_row_num": 33,
-            "__rowNum__": 32,
-            "_token_type": "prompt",
-            "_type": "note",
-            "_branch_label_enclosing_screen": "survey/_screen32",
-            "promptIdx": 15
-          },
-          {
-            "type": "select_one",
-            "values_list": "YesNoUM",
             "name": "COMSUP",
             "display": {
               "prompt": {
@@ -1545,12 +1452,12 @@
                 }
               }
             },
-            "_row_num": 34,
-            "__rowNum__": 33,
+            "_row_num": 17,
+            "__rowNum__": 16,
             "_token_type": "prompt",
             "_type": "select_one",
-            "_branch_label_enclosing_screen": "survey/_screen32",
-            "promptIdx": 16
+            "_branch_label_enclosing_screen": "survey/_screen15",
+            "promptIdx": 11
           },
           {
             "type": "adate",
@@ -1573,6 +1480,99 @@
               }
             },
             "constraint": "adate.diffInDays(data('DATEX'), data('DACOMSUP'))<1 || adate.hasUncertainty(data('DACOMSUP'))",
+            "_row_num": 19,
+            "__rowNum__": 18,
+            "_token_type": "prompt",
+            "_type": "adate",
+            "_branch_label_enclosing_screen": "survey/_screen15",
+            "promptIdx": 12
+          },
+          {
+            "type": "select_multiple",
+            "values_list": "dontknowdate",
+            "name": "dacomsupns",
+            "_row_num": 20,
+            "__rowNum__": 19,
+            "_token_type": "prompt",
+            "_type": "select_multiple",
+            "_branch_label_enclosing_screen": "survey/_screen15",
+            "promptIdx": 13
+          },
+          {
+            "type": "integer",
+            "name": "IDCOMSUP",
+            "display": {
+              "prompt": {
+                "text": {
+                  "english": "Age of starting supplementary feeding in months",
+                  "default": "Idade de início da alimentação suplementar em meses"
+                }
+              }
+            },
+            "_row_num": 22,
+            "__rowNum__": 21,
+            "_token_type": "prompt",
+            "_type": "integer",
+            "_branch_label_enclosing_screen": "survey/_screen15",
+            "promptIdx": 14
+          },
+          {
+            "type": "note",
+            "display": {
+              "prompt": {
+                "text": {
+                  "english": "Par Mamar:",
+                  "default": "Par Mamar:"
+                }
+              }
+            },
+            "_row_num": 33,
+            "__rowNum__": 32,
+            "_token_type": "prompt",
+            "_type": "note",
+            "_branch_label_enclosing_screen": "survey/_screen32",
+            "promptIdx": 15
+          },
+          {
+            "type": "select_one",
+            "values_list": "YesNoUM",
+            "name": "PARMAM",
+            "display": {
+              "prompt": {
+                "text": {
+                  "english": "Has the child stopped breastfeeding?",
+                  "default": "A criança parou de tomar leite (amamentação)?"
+                }
+              }
+            },
+            "_row_num": 34,
+            "__rowNum__": 33,
+            "_token_type": "prompt",
+            "_type": "select_one",
+            "_branch_label_enclosing_screen": "survey/_screen32",
+            "promptIdx": 16
+          },
+          {
+            "type": "adate",
+            "name": "DAPAMA",
+            "display": {
+              "prompt": {
+                "text": {
+                  "english": "Date of stopping breastfeeding",
+                  "default": "Data de interrupção da amamentação"
+                }
+              },
+              "constraint_message": {
+                "text": {
+                  "english": "The date of stopping breastfeeding cannot be in the future",
+                  "default": "A data de interrupção da amamentação não pode ser no futuro"
+                }
+              },
+              "adate": {
+                "helperText": false
+              }
+            },
+            "constraint": "adate.diffInDays(data('DATEX'), data('DAPAMA'))<1 || adate.hasUncertainty(data('DAPAMA'))",
             "_row_num": 36,
             "__rowNum__": 35,
             "_token_type": "prompt",
@@ -1583,7 +1583,7 @@
           {
             "type": "select_multiple",
             "values_list": "dontknowdate",
-            "name": "dacomsupns",
+            "name": "dapamans",
             "_row_num": 37,
             "__rowNum__": 36,
             "_token_type": "prompt",
@@ -1593,12 +1593,12 @@
           },
           {
             "type": "integer",
-            "name": "IDCOMSUP",
+            "name": "IDPAMA",
             "display": {
               "prompt": {
                 "text": {
-                  "english": "Age of starting supplementary feeding in months",
-                  "default": "Idade de início da alimentação suplementar em meses"
+                  "english": "Age of stopping breastfeeding in months",
+                  "default": "Idade de interrupção da amamentação em meses"
                 }
               }
             },
@@ -1641,7 +1641,7 @@
           },
           {
             "clause": "if",
-            "condition": "data('E_PARMAM') == '1'",
+            "condition": "data('E_COMSUP') == '1'",
             "_row_num": 14,
             "__rowNum__": 13,
             "_token_type": "goto_label",
@@ -1666,7 +1666,7 @@
               "__rowNum__": 28,
               "_token_type": "end_screen"
             },
-            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(10);\nactivePromptIndicies.push(11);\nif (data('PARMAM') == '1') {\nactivePromptIndicies.push(12);\nactivePromptIndicies.push(13);\nif (data('dapamans') == \"D:NS,M:NS,Y:NS\" || data('DAPAMA') == \"D:NS,M:NS,Y:NS\") {\nactivePromptIndicies.push(14);\nassign('DAPAMA', data('dapamans'));\n}\nif (data('dapamans') == \"D:1,M:1,Y:1955\") {\nassign('DAPAMA', data('dapamans'));\n}\n}\n\nreturn activePromptIndicies;\n}\n",
+            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(10);\nactivePromptIndicies.push(11);\nif (data('COMSUP') == '1') {\nactivePromptIndicies.push(12);\nactivePromptIndicies.push(13);\nif (data('dacomsupns')  == \"D:NS,M:NS,Y:NS\"  || data('DACOMSUP')  == \"D:NS,M:NS,Y:NS\") {\nactivePromptIndicies.push(14);\nassign('DACOMSUP', data('dacomsupns'));\n}\nif (data('dacomsupns')  == \"D:1,M:1,Y:1955\") {\nassign('DACOMSUP', data('dacomsupns'));\n}\n}\n\nreturn activePromptIndicies;\n}\n",
             "operationIdx": 3
           },
           {
@@ -1678,7 +1678,7 @@
           },
           {
             "clause": "if",
-            "condition": "data('E_COMSUP') == '1'",
+            "condition": "data('E_PARMAM') == '1'",
             "_row_num": 31,
             "__rowNum__": 30,
             "_token_type": "goto_label",
@@ -1703,7 +1703,7 @@
               "__rowNum__": 45,
               "_token_type": "end_screen"
             },
-            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(15);\nactivePromptIndicies.push(16);\nif (data('COMSUP') == '1') {\nactivePromptIndicies.push(17);\nactivePromptIndicies.push(18);\nif (data('dacomsupns')  == \"D:NS,M:NS,Y:NS\"  || data('DACOMSUP')  == \"D:NS,M:NS,Y:NS\") {\nactivePromptIndicies.push(19);\nassign('DACOMSUP', data('dacomsupns'));\n}\nif (data('dacomsupns')  == \"D:1,M:1,Y:1955\") {\nassign('DACOMSUP', data('dacomsupns'));\n}\n}\n\nreturn activePromptIndicies;\n}\n",
+            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(15);\nactivePromptIndicies.push(16);\nif (data('PARMAM') == '1') {\nactivePromptIndicies.push(17);\nactivePromptIndicies.push(18);\nif (data('dapamans') == \"D:NS,M:NS,Y:NS\" || data('DAPAMA') == \"D:NS,M:NS,Y:NS\") {\nactivePromptIndicies.push(19);\nassign('DAPAMA', data('dapamans'));\n}\nif (data('dapamans') == \"D:1,M:1,Y:1955\") {\nassign('DAPAMA', data('dapamans'));\n}\n}\n\nreturn activePromptIndicies;\n}\n",
             "operationIdx": 7
           },
           {
@@ -2119,7 +2119,7 @@
         "valuesList": "YesNoUM",
         "_defn": [
           {
-            "_row_num": 34,
+            "_row_num": 17,
             "section_name": "survey"
           },
           {
@@ -2142,7 +2142,7 @@
         "__rowNum__": 1,
         "_defn": [
           {
-            "_row_num": 36,
+            "_row_num": 19,
             "section_name": "survey"
           },
           {
@@ -2170,7 +2170,7 @@
         "valuesList": "dontknowdate",
         "_defn": [
           {
-            "_row_num": 37,
+            "_row_num": 20,
             "section_name": "survey"
           },
           {
@@ -2196,7 +2196,7 @@
         "__rowNum__": 1,
         "_defn": [
           {
-            "_row_num": 19,
+            "_row_num": 36,
             "section_name": "survey"
           },
           {
@@ -2224,7 +2224,7 @@
         "valuesList": "dontknowdate",
         "_defn": [
           {
-            "_row_num": 20,
+            "_row_num": 37,
             "section_name": "survey"
           },
           {
@@ -2287,7 +2287,7 @@
         "type": "integer",
         "_defn": [
           {
-            "_row_num": 39,
+            "_row_num": 22,
             "section_name": "survey"
           },
           {
@@ -2305,7 +2305,7 @@
         "type": "integer",
         "_defn": [
           {
-            "_row_num": 22,
+            "_row_num": 39,
             "section_name": "survey"
           },
           {
@@ -2324,7 +2324,7 @@
         "valuesList": "YesNoUM",
         "_defn": [
           {
-            "_row_num": 17,
+            "_row_num": 34,
             "section_name": "survey"
           },
           {
