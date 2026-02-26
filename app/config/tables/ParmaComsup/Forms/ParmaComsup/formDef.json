@@ -160,31 +160,55 @@
         "_row_num": 12
       },
       {
-        "type": "select_one_with_other",
-        "values_list": "info",
-        "name": "LMP_CARD",
+        "type": "note",
         "display": {
           "prompt": {
             "text": {
-              "english": "Quali informacao sobre data ult mens?",
-              "default": "Quali informacao sobre data ult mens?"
+              "english": "Data de visita: <b>{{data.CONT}}</b>",
+              "default": "Data de visita: <b>{{data.CONT}}</b>"
             }
           }
         },
         "_row_num": 13
       },
       {
-        "clause": "end screen",
+        "type": "note",
+        "display": {
+          "prompt": {
+            "text": {
+              "english": "Numero de visita: <b>{{data.NOVIS}}</b>",
+              "default": "Numero de visita: <b>{{data.NOVIS}}</b>"
+            }
+          }
+        },
         "_row_num": 14
+      },
+      {
+        "type": "select_one_with_other",
+        "values_list": "info",
+        "name": "LMP_CARD",
+        "display": {
+          "prompt": {
+            "text": {
+              "english": "Qual e informacao sobre data ult mens?",
+              "default": "Qual e informacao sobre data do ult mens?"
+            }
+          }
+        },
+        "_row_num": 15
+      },
+      {
+        "clause": "end screen",
+        "_row_num": 16
       },
       {
         "clause": "if",
         "condition": "data('ASSISTENTE') == null",
-        "_row_num": 15
+        "_row_num": 17
       },
       {
         "clause": "begin screen",
-        "_row_num": 16
+        "_row_num": 18
       },
       {
         "type": "integer",
@@ -197,23 +221,23 @@
             }
           }
         },
-        "_row_num": 17
-      },
-      {
-        "clause": "end screen",
         "_row_num": 19
       },
       {
-        "clause": "end if",
-        "_row_num": 20
-      },
-      {
-        "clause": "end if",
+        "clause": "end screen",
         "_row_num": 21
       },
       {
-        "clause": "begin screen",
+        "clause": "end if",
         "_row_num": 22
+      },
+      {
+        "clause": "end if",
+        "_row_num": 23
+      },
+      {
+        "clause": "begin screen",
+        "_row_num": 24
       },
       {
         "type": "text",
@@ -226,11 +250,11 @@
             }
           }
         },
-        "_row_num": 23
+        "_row_num": 25
       },
       {
         "clause": "end screen",
-        "_row_num": 24
+        "_row_num": 26
       }
     ],
     "prompt_types": [
@@ -540,6 +564,12 @@
         "type": "integer",
         "isSessionVariable": false,
         "_row_num": 18
+      },
+      {
+        "name": "NOVIS",
+        "type": "integer",
+        "isSessionVariable": false,
+        "_row_num": 19
       }
     ]
   },
@@ -966,7 +996,7 @@
         "valuesList": "info",
         "_defn": [
           {
-            "_row_num": 13,
+            "_row_num": 15,
             "section_name": "survey"
           },
           {
@@ -1030,7 +1060,7 @@
         "type": "string",
         "_defn": [
           {
-            "_row_num": 23,
+            "_row_num": 25,
             "section_name": "survey"
           },
           {
@@ -1072,7 +1102,7 @@
         "type": "integer",
         "_defn": [
           {
-            "_row_num": 17,
+            "_row_num": 19,
             "section_name": "survey"
           },
           {
@@ -1082,6 +1112,17 @@
         ],
         "isSessionVariable": false,
         "elementKey": "ASSIST"
+      },
+      "NOVIS": {
+        "type": "integer",
+        "_defn": [
+          {
+            "_row_num": 19,
+            "section_name": "model"
+          }
+        ],
+        "isSessionVariable": false,
+        "elementKey": "NOVIS"
       }
     },
     "section_names": [
@@ -1208,23 +1249,57 @@
             "promptIdx": 6
           },
           {
-            "type": "select_one_with_other",
-            "values_list": "info",
-            "name": "LMP_CARD",
+            "type": "note",
             "display": {
               "prompt": {
                 "text": {
-                  "english": "Quali informacao sobre data ult mens?",
-                  "default": "Quali informacao sobre data ult mens?"
+                  "english": "Data de visita: <b>{{data.CONT}}</b>",
+                  "default": "Data de visita: <b>{{data.CONT}}</b>"
                 }
               }
             },
             "_row_num": 13,
             "__rowNum__": 12,
             "_token_type": "prompt",
-            "_type": "select_one_with_other",
+            "_type": "note",
             "_branch_label_enclosing_screen": "survey/_screen12",
             "promptIdx": 7
+          },
+          {
+            "type": "note",
+            "display": {
+              "prompt": {
+                "text": {
+                  "english": "Numero de visita: <b>{{data.NOVIS}}</b>",
+                  "default": "Numero de visita: <b>{{data.NOVIS}}</b>"
+                }
+              }
+            },
+            "_row_num": 14,
+            "__rowNum__": 13,
+            "_token_type": "prompt",
+            "_type": "note",
+            "_branch_label_enclosing_screen": "survey/_screen12",
+            "promptIdx": 8
+          },
+          {
+            "type": "select_one_with_other",
+            "values_list": "info",
+            "name": "LMP_CARD",
+            "display": {
+              "prompt": {
+                "text": {
+                  "english": "Qual e informacao sobre data ult mens?",
+                  "default": "Qual e informacao sobre data do ult mens?"
+                }
+              }
+            },
+            "_row_num": 15,
+            "__rowNum__": 14,
+            "_token_type": "prompt",
+            "_type": "select_one_with_other",
+            "_branch_label_enclosing_screen": "survey/_screen12",
+            "promptIdx": 9
           },
           {
             "type": "integer",
@@ -1237,12 +1312,12 @@
                 }
               }
             },
-            "_row_num": 17,
-            "__rowNum__": 16,
+            "_row_num": 19,
+            "__rowNum__": 18,
             "_token_type": "prompt",
             "_type": "integer",
-            "_branch_label_enclosing_screen": "survey/_screen16",
-            "promptIdx": 8
+            "_branch_label_enclosing_screen": "survey/_screen18",
+            "promptIdx": 10
           },
           {
             "type": "text",
@@ -1255,20 +1330,20 @@
                 }
               }
             },
-            "_row_num": 23,
-            "__rowNum__": 22,
+            "_row_num": 25,
+            "__rowNum__": 24,
             "_token_type": "prompt",
             "_type": "text",
-            "_branch_label_enclosing_screen": "survey/_screen22",
-            "promptIdx": 9
+            "_branch_label_enclosing_screen": "survey/_screen24",
+            "promptIdx": 11
           },
           {
             "_token_type": "prompt",
             "type": "contents",
             "_type": "contents",
-            "_row_num": 25,
-            "_branch_label_enclosing_screen": "survey/_screen25",
-            "promptIdx": 10
+            "_row_num": 27,
+            "_branch_label_enclosing_screen": "survey/_screen27",
+            "promptIdx": 12
           }
         ],
         "validation_tag_map": {
@@ -1301,8 +1376,8 @@
           {
             "clause": "end if",
             "_token_type": "goto_label",
-            "_branch_label": "_else21",
-            "_row_num": 21,
+            "_branch_label": "_else23",
+            "_row_num": 23,
             "operationIdx": 2
           },
           {
@@ -1312,81 +1387,81 @@
             "_token_type": "begin_screen",
             "_end_screen_clause": {
               "clause": "end screen",
-              "_row_num": 14,
-              "__rowNum__": 13,
+              "_row_num": 16,
+              "__rowNum__": 15,
               "_token_type": "end_screen"
             },
-            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(7);\n\nreturn activePromptIndicies;\n}\n",
+            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(7);\nactivePromptIndicies.push(8);\nactivePromptIndicies.push(9);\n\nreturn activePromptIndicies;\n}\n",
             "operationIdx": 3
           },
           {
             "clause": "if",
             "condition": "data('ASSISTENTE') == null",
-            "_row_num": 15,
-            "__rowNum__": 14,
+            "_row_num": 17,
+            "__rowNum__": 16,
             "_token_type": "goto_label",
-            "_branch_label": "_then15",
+            "_branch_label": "_then17",
             "operationIdx": 4
           },
           {
             "clause": "end if",
             "_token_type": "goto_label",
-            "_branch_label": "_else20",
-            "_row_num": 20,
+            "_branch_label": "_else22",
+            "_row_num": 22,
             "operationIdx": 5
           },
           {
             "clause": "begin screen",
-            "_row_num": 16,
-            "__rowNum__": 15,
+            "_row_num": 18,
+            "__rowNum__": 17,
             "_token_type": "begin_screen",
             "_end_screen_clause": {
               "clause": "end screen",
-              "_row_num": 19,
-              "__rowNum__": 18,
+              "_row_num": 21,
+              "__rowNum__": 20,
               "_token_type": "end_screen"
             },
-            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(8);\n\nreturn activePromptIndicies;\n}\n",
+            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(10);\n\nreturn activePromptIndicies;\n}\n",
             "operationIdx": 6
           },
           {
             "clause": "end if",
             "_token_type": "goto_label",
-            "_branch_label": "_endif20",
-            "_row_num": 20,
+            "_branch_label": "_endif22",
+            "_row_num": 22,
             "operationIdx": 7
           },
           {
             "clause": "end if",
             "_token_type": "goto_label",
-            "_branch_label": "_endif21",
-            "_row_num": 21,
+            "_branch_label": "_endif23",
+            "_row_num": 23,
             "operationIdx": 8
           },
           {
             "clause": "begin screen",
-            "_row_num": 22,
-            "__rowNum__": 21,
+            "_row_num": 24,
+            "__rowNum__": 23,
             "_token_type": "begin_screen",
             "_end_screen_clause": {
               "clause": "end screen",
-              "_row_num": 24,
-              "__rowNum__": 23,
+              "_row_num": 26,
+              "__rowNum__": 25,
               "_token_type": "end_screen"
             },
-            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(9);\n\nreturn activePromptIndicies;\n}\n",
+            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(11);\n\nreturn activePromptIndicies;\n}\n",
             "operationIdx": 9
           },
           {
             "_token_type": "exit_section",
             "clause": "exit section",
-            "_row_num": 25,
+            "_row_num": 27,
             "operationIdx": 10
           },
           {
-            "_row_num": 25,
+            "_row_num": 27,
             "_token_type": "begin_screen",
-            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(10);\n\nreturn activePromptIndicies;\n}\n",
+            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(12);\n\nreturn activePromptIndicies;\n}\n",
             "screen": {
               "hideInBackHistory": true
             },
@@ -1395,7 +1470,7 @@
           {
             "_token_type": "resume",
             "clause": "resume",
-            "_row_num": 25,
+            "_row_num": 27,
             "operationIdx": 12
           }
         ],
@@ -1403,15 +1478,15 @@
           "_screen2": 0,
           "_then11": 3,
           "_screen12": 3,
-          "_then15": 6,
-          "_screen16": 6,
-          "_else20": 8,
-          "_endif20": 8,
-          "_else21": 9,
-          "_endif21": 9,
-          "_screen22": 9,
+          "_then17": 6,
+          "_screen18": 6,
+          "_else22": 8,
+          "_endif22": 8,
+          "_else23": 9,
+          "_endif23": 9,
+          "_screen24": 9,
           "_contents": 11,
-          "_screen25": 11
+          "_screen27": 11
         }
       },
       "initial": {
@@ -1723,7 +1798,7 @@
         "valuesList": "info",
         "_defn": [
           {
-            "_row_num": 13,
+            "_row_num": 15,
             "section_name": "survey"
           },
           {
@@ -1802,7 +1877,7 @@
         "type": "string",
         "_defn": [
           {
-            "_row_num": 23,
+            "_row_num": 25,
             "section_name": "survey"
           },
           {
@@ -1853,7 +1928,7 @@
         "type": "integer",
         "_defn": [
           {
-            "_row_num": 17,
+            "_row_num": 19,
             "section_name": "survey"
           },
           {
@@ -1866,6 +1941,20 @@
         "elementName": "ASSIST",
         "elementSet": "data",
         "elementPath": "ASSIST"
+      },
+      "NOVIS": {
+        "type": "integer",
+        "_defn": [
+          {
+            "_row_num": 19,
+            "section_name": "model"
+          }
+        ],
+        "isSessionVariable": false,
+        "elementKey": "NOVIS",
+        "elementName": "NOVIS",
+        "elementSet": "data",
+        "elementPath": "NOVIS"
       },
       "_id": {
         "type": "string",
