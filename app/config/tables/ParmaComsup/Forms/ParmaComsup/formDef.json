@@ -198,17 +198,38 @@
         "_row_num": 15
       },
       {
-        "clause": "end screen",
+        "type": "select_multiple",
+        "values_list": "nadanada",
+        "name": "nada",
         "_row_num": 16
       },
       {
         "clause": "if",
-        "condition": "data('ASSISTENTE') == null",
+        "condition": "data('nada') != null",
         "_row_num": 17
       },
       {
-        "clause": "begin screen",
+        "type": "assign",
+        "name": "LMP_CARD",
+        "calculation": "0909",
         "_row_num": 18
+      },
+      {
+        "clause": "end if",
+        "_row_num": 19
+      },
+      {
+        "clause": "end screen",
+        "_row_num": 20
+      },
+      {
+        "clause": "if",
+        "condition": "data('ASSISTENTE') == null",
+        "_row_num": 21
+      },
+      {
+        "clause": "begin screen",
+        "_row_num": 22
       },
       {
         "type": "integer",
@@ -221,23 +242,23 @@
             }
           }
         },
-        "_row_num": 19
-      },
-      {
-        "clause": "end screen",
-        "_row_num": 21
-      },
-      {
-        "clause": "end if",
-        "_row_num": 22
-      },
-      {
-        "clause": "end if",
         "_row_num": 23
       },
       {
+        "clause": "end screen",
+        "_row_num": 25
+      },
+      {
+        "clause": "end if",
+        "_row_num": 26
+      },
+      {
+        "clause": "end if",
+        "_row_num": 27
+      },
+      {
         "clause": "begin screen",
-        "_row_num": 24
+        "_row_num": 28
       },
       {
         "type": "text",
@@ -250,11 +271,11 @@
             }
           }
         },
-        "_row_num": 25
+        "_row_num": 29
       },
       {
         "clause": "end screen",
-        "_row_num": 26
+        "_row_num": 30
       }
     ],
     "prompt_types": [
@@ -460,6 +481,32 @@
           }
         },
         "_row_num": 17
+      },
+      {
+        "choice_list_name": "info",
+        "data_value": "12",
+        "display": {
+          "title": {
+            "text": {
+              "english": "--- | ---",
+              "default": "--- | ---"
+            }
+          }
+        },
+        "_row_num": 18
+      },
+      {
+        "choice_list_name": "nadanada",
+        "data_value": "0909",
+        "display": {
+          "title": {
+            "text": {
+              "english": "Assistente não escrivou nada",
+              "default": "Assistente não escrivou nada"
+            }
+          }
+        },
+        "_row_num": 20
       }
     ],
     "model": [
@@ -884,6 +931,34 @@
             }
           },
           "_row_num": 17
+        },
+        {
+          "choice_list_name": "info",
+          "data_value": "12",
+          "display": {
+            "title": {
+              "text": {
+                "english": "--- | ---",
+                "default": "--- | ---"
+              }
+            }
+          },
+          "_row_num": 18
+        }
+      ],
+      "nadanada": [
+        {
+          "choice_list_name": "nadanada",
+          "data_value": "0909",
+          "display": {
+            "title": {
+              "text": {
+                "english": "Assistente não escrivou nada",
+                "default": "Assistente não escrivou nada"
+              }
+            }
+          },
+          "_row_num": 20
         }
       ]
     },
@@ -1060,7 +1135,7 @@
         "type": "string",
         "_defn": [
           {
-            "_row_num": 25,
+            "_row_num": 29,
             "section_name": "survey"
           },
           {
@@ -1102,7 +1177,7 @@
         "type": "integer",
         "_defn": [
           {
-            "_row_num": 19,
+            "_row_num": 23,
             "section_name": "survey"
           },
           {
@@ -1123,6 +1198,21 @@
         ],
         "isSessionVariable": false,
         "elementKey": "NOVIS"
+      },
+      "nada": {
+        "_defn": [
+          {
+            "_row_num": 16,
+            "section_name": "survey"
+          }
+        ],
+        "type": "array",
+        "items": {
+          "type": "string",
+          "elementKey": "nada_items"
+        },
+        "valuesList": "nadanada",
+        "elementKey": "nada"
       }
     },
     "section_names": [
@@ -1302,6 +1392,17 @@
             "promptIdx": 9
           },
           {
+            "type": "select_multiple",
+            "values_list": "nadanada",
+            "name": "nada",
+            "_row_num": 16,
+            "__rowNum__": 15,
+            "_token_type": "prompt",
+            "_type": "select_multiple",
+            "_branch_label_enclosing_screen": "survey/_screen12",
+            "promptIdx": 10
+          },
+          {
             "type": "integer",
             "name": "ASSIST",
             "display": {
@@ -1312,12 +1413,12 @@
                 }
               }
             },
-            "_row_num": 19,
-            "__rowNum__": 18,
+            "_row_num": 23,
+            "__rowNum__": 22,
             "_token_type": "prompt",
             "_type": "integer",
-            "_branch_label_enclosing_screen": "survey/_screen18",
-            "promptIdx": 10
+            "_branch_label_enclosing_screen": "survey/_screen22",
+            "promptIdx": 11
           },
           {
             "type": "text",
@@ -1330,20 +1431,20 @@
                 }
               }
             },
-            "_row_num": 25,
-            "__rowNum__": 24,
+            "_row_num": 29,
+            "__rowNum__": 28,
             "_token_type": "prompt",
             "_type": "text",
-            "_branch_label_enclosing_screen": "survey/_screen24",
-            "promptIdx": 11
+            "_branch_label_enclosing_screen": "survey/_screen28",
+            "promptIdx": 12
           },
           {
             "_token_type": "prompt",
             "type": "contents",
             "_type": "contents",
-            "_row_num": 27,
-            "_branch_label_enclosing_screen": "survey/_screen27",
-            "promptIdx": 12
+            "_row_num": 31,
+            "_branch_label_enclosing_screen": "survey/_screen31",
+            "promptIdx": 13
           }
         ],
         "validation_tag_map": {
@@ -1376,8 +1477,8 @@
           {
             "clause": "end if",
             "_token_type": "goto_label",
-            "_branch_label": "_else23",
-            "_row_num": 23,
+            "_branch_label": "_else27",
+            "_row_num": 27,
             "operationIdx": 2
           },
           {
@@ -1387,81 +1488,81 @@
             "_token_type": "begin_screen",
             "_end_screen_clause": {
               "clause": "end screen",
-              "_row_num": 16,
-              "__rowNum__": 15,
+              "_row_num": 20,
+              "__rowNum__": 19,
               "_token_type": "end_screen"
             },
-            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(7);\nactivePromptIndicies.push(8);\nactivePromptIndicies.push(9);\n\nreturn activePromptIndicies;\n}\n",
+            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(7);\nactivePromptIndicies.push(8);\nactivePromptIndicies.push(9);\nactivePromptIndicies.push(10);\nif (data('nada') != null) {\nassign('LMP_CARD', 0909);\n}\n\nreturn activePromptIndicies;\n}\n",
             "operationIdx": 3
           },
           {
             "clause": "if",
             "condition": "data('ASSISTENTE') == null",
-            "_row_num": 17,
-            "__rowNum__": 16,
+            "_row_num": 21,
+            "__rowNum__": 20,
             "_token_type": "goto_label",
-            "_branch_label": "_then17",
+            "_branch_label": "_then21",
             "operationIdx": 4
           },
           {
             "clause": "end if",
             "_token_type": "goto_label",
-            "_branch_label": "_else22",
-            "_row_num": 22,
+            "_branch_label": "_else26",
+            "_row_num": 26,
             "operationIdx": 5
           },
           {
             "clause": "begin screen",
-            "_row_num": 18,
-            "__rowNum__": 17,
+            "_row_num": 22,
+            "__rowNum__": 21,
             "_token_type": "begin_screen",
             "_end_screen_clause": {
               "clause": "end screen",
-              "_row_num": 21,
-              "__rowNum__": 20,
+              "_row_num": 25,
+              "__rowNum__": 24,
               "_token_type": "end_screen"
             },
-            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(10);\n\nreturn activePromptIndicies;\n}\n",
+            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(11);\n\nreturn activePromptIndicies;\n}\n",
             "operationIdx": 6
           },
           {
             "clause": "end if",
             "_token_type": "goto_label",
-            "_branch_label": "_endif22",
-            "_row_num": 22,
+            "_branch_label": "_endif26",
+            "_row_num": 26,
             "operationIdx": 7
           },
           {
             "clause": "end if",
             "_token_type": "goto_label",
-            "_branch_label": "_endif23",
-            "_row_num": 23,
+            "_branch_label": "_endif27",
+            "_row_num": 27,
             "operationIdx": 8
           },
           {
             "clause": "begin screen",
-            "_row_num": 24,
-            "__rowNum__": 23,
+            "_row_num": 28,
+            "__rowNum__": 27,
             "_token_type": "begin_screen",
             "_end_screen_clause": {
               "clause": "end screen",
-              "_row_num": 26,
-              "__rowNum__": 25,
+              "_row_num": 30,
+              "__rowNum__": 29,
               "_token_type": "end_screen"
             },
-            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(11);\n\nreturn activePromptIndicies;\n}\n",
+            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(12);\n\nreturn activePromptIndicies;\n}\n",
             "operationIdx": 9
           },
           {
             "_token_type": "exit_section",
             "clause": "exit section",
-            "_row_num": 27,
+            "_row_num": 31,
             "operationIdx": 10
           },
           {
-            "_row_num": 27,
+            "_row_num": 31,
             "_token_type": "begin_screen",
-            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(12);\n\nreturn activePromptIndicies;\n}\n",
+            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(13);\n\nreturn activePromptIndicies;\n}\n",
             "screen": {
               "hideInBackHistory": true
             },
@@ -1470,7 +1571,7 @@
           {
             "_token_type": "resume",
             "clause": "resume",
-            "_row_num": 27,
+            "_row_num": 31,
             "operationIdx": 12
           }
         ],
@@ -1478,15 +1579,15 @@
           "_screen2": 0,
           "_then11": 3,
           "_screen12": 3,
-          "_then17": 6,
-          "_screen18": 6,
-          "_else22": 8,
-          "_endif22": 8,
-          "_else23": 9,
-          "_endif23": 9,
-          "_screen24": 9,
+          "_then21": 6,
+          "_screen22": 6,
+          "_else26": 8,
+          "_endif26": 8,
+          "_else27": 9,
+          "_endif27": 9,
+          "_screen28": 9,
           "_contents": 11,
-          "_screen27": 11
+          "_screen31": 11
         }
       },
       "initial": {
@@ -1877,7 +1978,7 @@
         "type": "string",
         "_defn": [
           {
-            "_row_num": 25,
+            "_row_num": 29,
             "section_name": "survey"
           },
           {
@@ -1928,7 +2029,7 @@
         "type": "integer",
         "_defn": [
           {
-            "_row_num": 19,
+            "_row_num": 23,
             "section_name": "survey"
           },
           {
@@ -1955,6 +2056,39 @@
         "elementName": "NOVIS",
         "elementSet": "data",
         "elementPath": "NOVIS"
+      },
+      "nada": {
+        "_defn": [
+          {
+            "_row_num": 16,
+            "section_name": "survey"
+          }
+        ],
+        "type": "array",
+        "items": {
+          "type": "string",
+          "elementKey": "nada_items",
+          "elementName": "items",
+          "elementSet": "data",
+          "elementPath": "nada.items",
+          "notUnitOfRetention": true
+        },
+        "valuesList": "nadanada",
+        "elementKey": "nada",
+        "elementName": "nada",
+        "elementSet": "data",
+        "elementPath": "nada",
+        "listChildElementKeys": [
+          "nada_items"
+        ]
+      },
+      "nada_items": {
+        "type": "string",
+        "elementKey": "nada_items",
+        "elementName": "items",
+        "elementSet": "data",
+        "elementPath": "nada.items",
+        "notUnitOfRetention": true
       },
       "_id": {
         "type": "string",
@@ -2075,7 +2209,7 @@
         "_aspect": "LMP_CARD",
         "_key": "displayChoicesList",
         "_type": "object",
-        "_value": "[{\"choice_list_name\":\"info\",\"data_value\":\"1\",\"display\":{\"title\":{\"text\":{\"english\":\"F.I.\",\"default\":\"F.I.\"}}},\"_row_num\":7},{\"choice_list_name\":\"info\",\"data_value\":\"2\",\"display\":{\"title\":{\"text\":{\"english\":\"NV / NVC\",\"default\":\"NV / NVC\"}}},\"_row_num\":8},{\"choice_list_name\":\"info\",\"data_value\":\"3\",\"display\":{\"title\":{\"text\":{\"english\":\"\\\" - \\\"\",\"default\":\"\\\" - \\\"\"}}},\"_row_num\":9},{\"choice_list_name\":\"info\",\"data_value\":\"4\",\"display\":{\"title\":{\"text\":{\"english\":\"I\",\"default\":\"I\"}}},\"_row_num\":10},{\"choice_list_name\":\"info\",\"data_value\":\"5\",\"display\":{\"title\":{\"text\":{\"english\":\"NS\",\"default\":\"NS\"}}},\"_row_num\":11},{\"choice_list_name\":\"info\",\"data_value\":\"6\",\"display\":{\"title\":{\"text\":{\"english\":\"F.I. VC\",\"default\":\"F.I. VC\"}}},\"_row_num\":12},{\"choice_list_name\":\"info\",\"data_value\":\"7\",\"display\":{\"title\":{\"text\":{\"english\":\"NT.C / NTC\",\"default\":\"NT.C / NTC\"}}},\"_row_num\":13},{\"choice_list_name\":\"info\",\"data_value\":\"8\",\"display\":{\"title\":{\"text\":{\"english\":\"S.I.\",\"default\":\"S.I.\"}}},\"_row_num\":14},{\"choice_list_name\":\"info\",\"data_value\":\"9\",\"display\":{\"title\":{\"text\":{\"english\":\"NV. na C.\",\"default\":\"NV. na C.\"}}},\"_row_num\":15},{\"choice_list_name\":\"info\",\"data_value\":\"10\",\"display\":{\"title\":{\"text\":{\"english\":\"\\\"00\\\"\",\"default\":\"\\\"00\\\"\"}}},\"_row_num\":16},{\"choice_list_name\":\"info\",\"data_value\":\"11\",\"display\":{\"title\":{\"text\":{\"english\":\"n tem na carta\",\"default\":\"n tem na carta\"}}},\"_row_num\":17}]"
+        "_value": "[{\"choice_list_name\":\"info\",\"data_value\":\"1\",\"display\":{\"title\":{\"text\":{\"english\":\"F.I.\",\"default\":\"F.I.\"}}},\"_row_num\":7},{\"choice_list_name\":\"info\",\"data_value\":\"2\",\"display\":{\"title\":{\"text\":{\"english\":\"NV / NVC\",\"default\":\"NV / NVC\"}}},\"_row_num\":8},{\"choice_list_name\":\"info\",\"data_value\":\"3\",\"display\":{\"title\":{\"text\":{\"english\":\"\\\" - \\\"\",\"default\":\"\\\" - \\\"\"}}},\"_row_num\":9},{\"choice_list_name\":\"info\",\"data_value\":\"4\",\"display\":{\"title\":{\"text\":{\"english\":\"I\",\"default\":\"I\"}}},\"_row_num\":10},{\"choice_list_name\":\"info\",\"data_value\":\"5\",\"display\":{\"title\":{\"text\":{\"english\":\"NS\",\"default\":\"NS\"}}},\"_row_num\":11},{\"choice_list_name\":\"info\",\"data_value\":\"6\",\"display\":{\"title\":{\"text\":{\"english\":\"F.I. VC\",\"default\":\"F.I. VC\"}}},\"_row_num\":12},{\"choice_list_name\":\"info\",\"data_value\":\"7\",\"display\":{\"title\":{\"text\":{\"english\":\"NT.C / NTC\",\"default\":\"NT.C / NTC\"}}},\"_row_num\":13},{\"choice_list_name\":\"info\",\"data_value\":\"8\",\"display\":{\"title\":{\"text\":{\"english\":\"S.I.\",\"default\":\"S.I.\"}}},\"_row_num\":14},{\"choice_list_name\":\"info\",\"data_value\":\"9\",\"display\":{\"title\":{\"text\":{\"english\":\"NV. na C.\",\"default\":\"NV. na C.\"}}},\"_row_num\":15},{\"choice_list_name\":\"info\",\"data_value\":\"10\",\"display\":{\"title\":{\"text\":{\"english\":\"\\\"00\\\"\",\"default\":\"\\\"00\\\"\"}}},\"_row_num\":16},{\"choice_list_name\":\"info\",\"data_value\":\"11\",\"display\":{\"title\":{\"text\":{\"english\":\"n tem na carta\",\"default\":\"n tem na carta\"}}},\"_row_num\":17},{\"choice_list_name\":\"info\",\"data_value\":\"12\",\"display\":{\"title\":{\"text\":{\"english\":\"--- | ---\",\"default\":\"--- | ---\"}}},\"_row_num\":18}]"
       },
       {
         "_partition": "Column",
@@ -2083,6 +2217,13 @@
         "_key": "displayChoicesList",
         "_type": "object",
         "_value": "[{\"choice_list_name\":\"seenform\",\"data_value\":\"1\",\"display\":{\"title\":{\"text\":{\"english\":\"Vi\",\"default\":\"Vi\"}}},\"_row_num\":2},{\"choice_list_name\":\"seenform\",\"data_value\":\"2\",\"display\":{\"title\":{\"text\":{\"english\":\"Localizou pasta - sem ficha\",\"default\":\"Localizou pasta - sem ficha\"}}},\"_row_num\":3},{\"choice_list_name\":\"seenform\",\"data_value\":\"3\",\"display\":{\"title\":{\"text\":{\"english\":\"Nao localizou pasta\",\"default\":\"Nao localizou pasta\"}}},\"_row_num\":4}]"
+      },
+      {
+        "_partition": "Column",
+        "_aspect": "nada",
+        "_key": "displayChoicesList",
+        "_type": "object",
+        "_value": "[{\"choice_list_name\":\"nadanada\",\"data_value\":\"0909\",\"display\":{\"title\":{\"text\":{\"english\":\"Assistente não escrivou nada\",\"default\":\"Assistente não escrivou nada\"}}},\"_row_num\":20}]"
       },
       {
         "_partition": "FormType",

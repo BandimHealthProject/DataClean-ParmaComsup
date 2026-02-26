@@ -17,3 +17,5 @@ REGIDC,REGIDC,string,[]
 REGIDMAE,REGIDMAE,string,[]
 TAB,TAB,string,[]
 VIFICHA,VIFICHA,string,[]
+nada,nada,array,"[""nada_items""]"
+nada_items,items,string,[]
