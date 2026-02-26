@@ -8,7 +8,7 @@
       },
       {
         "setting_name": "form_version",
-        "value": 60120,
+        "value": 20260224,
         "_row_num": 3
       },
       {
@@ -21,8 +21,8 @@
         "display": {
           "title": {
             "text": {
-              "english": "Data cleaning - Parma and Comsup",
-              "default": "Limpeza - Parma and Comsup"
+              "english": "ParmaComsup",
+              "default": "ParmaComsup"
             }
           }
         },
@@ -59,7 +59,7 @@
       },
       {
         "setting_name": "instance_name",
-        "value": "NOMECRI",
+        "value": "VIFICHA",
         "_row_num": 9
       }
     ],
@@ -73,8 +73,8 @@
         "display": {
           "prompt": {
             "text": {
-              "english": "regidc: <b>{{data.REGIDC}}</b>",
-              "default": "regidc: <b>{{data.REGIDC}}</b>"
+              "english": "REG:  <b>{{data.REG}}</b>  TAB: <b>{{data.TAB}}</b>,     NOC: <b>{{data.NOC}}</b>",
+              "default": "REG:  <b>{{data.REG}}</b>  TAB: <b>{{data.TAB}}</b>,     NOC: <b>{{data.NOC}}</b>"
             }
           }
         },
@@ -85,8 +85,8 @@
         "display": {
           "prompt": {
             "text": {
-              "english": "reg: <b>{{data.REG}}</b>",
-              "default": "reg: <b>{{data.REG}}</b>"
+              "english": "REGDIA:  <b>{{data.REGDIA}}</b>",
+              "default": "REGDIA:  <b>{{data.REGDIA}}</b>"
             }
           }
         },
@@ -97,8 +97,8 @@
         "display": {
           "prompt": {
             "text": {
-              "english": "tab: <b>{{data.TAB}}</b>",
-              "default": "tab: <b>{{data.TAB}}</b>"
+              "english": "Nomemae: <b>{{data.NOMEMAE}}</b>",
+              "default": "Nomemae: <b>{{data.NOMEMAE}}</b>"
             }
           }
         },
@@ -109,8 +109,8 @@
         "display": {
           "prompt": {
             "text": {
-              "english": "mor: <b>{{data.MOR}}</b>",
-              "default": "mor: <b>{{data.MOR}}</b>"
+              "english": "DNASC:  <b>{{data.DNASC}}</b>",
+              "default": "DNASC:  <b>{{data.DNASC}}</b>"
             }
           }
         },
@@ -121,8 +121,8 @@
         "display": {
           "prompt": {
             "text": {
-              "english": "noc: <b>{{data.NOC}}</b>",
-              "default": "noc: <b>{{data.NOC}}</b>"
+              "english": "Nome: <b>{{data.NOME}}</b>",
+              "default": "Nome: <b>{{data.NOME}}</b>"
             }
           }
         },
@@ -133,436 +133,327 @@
         "display": {
           "prompt": {
             "text": {
-              "english": "nomecri: <b>{{data.NOMECRI}}</b>",
-              "default": "nomecri: <b>{{data.NOMECRI}}</b>"
+              "english": "Vi Ficha Gravida?",
+              "default": "Vi Ficha Gravida?"
             }
           }
         },
         "_row_num": 8
       },
       {
-        "type": "note",
-        "display": {
-          "prompt": {
-            "text": {
-              "english": "regdia: <b>{{calculates.displayREGDIA}}</b>",
-              "default": "regdia: <b>{{calculates.displayREGDIA}}</b>"
-            }
-          }
-        },
+        "type": "select_one",
+        "values_list": "seenform",
+        "name": "VIFICHA",
         "_row_num": 9
       },
       {
-        "type": "note",
-        "display": {
-          "prompt": {
-            "text": {
-              "english": "dnasc: <b>{{calculates.displayDNASC}}</b>",
-              "default": "dnasc: <b>{{calculates.displayDNASC}}</b>"
-            }
-          }
-        },
+        "clause": "end screen",
         "_row_num": 10
       },
       {
-        "type": "note",
-        "display": {
-          "prompt": {
-            "text": {
-              "english": "nomemae: <b>{{data.NOMEMAE}}</b>",
-              "default": "nomemae: <b>{{data.NOMEMAE}}</b>"
-            }
-          }
-        },
+        "clause": "if",
+        "condition": "data('VIFICHA') =='1'",
         "_row_num": 11
       },
       {
-        "type": "note",
-        "display": {
-          "prompt": {
-            "text": {
-              "english": "datex: <b>{{calculates.displayDATEX}}</b>",
-              "default": "datex: <b>{{calculates.displayDATEX}}</b>"
-            }
-          }
-        },
+        "clause": "begin screen",
         "_row_num": 12
       },
       {
-        "clause": "end screen",
-        "_row_num": 13
-      },
-      {
-        "clause": "if",
-        "condition": "data('E_COMSUP') == '1'",
-        "_row_num": 14
-      },
-      {
-        "clause": "begin screen",
-        "_row_num": 15
-      },
-      {
-        "type": "note",
+        "type": "select_one_with_other",
+        "values_list": "info",
+        "name": "LMP_CARD",
         "display": {
           "prompt": {
             "text": {
-              "english": "Com Sup.:",
-              "default": "Com Sup.:"
+              "english": "Quali informacao sobre data ult mens?",
+              "default": "Quali informacao sobre data ult mens?"
             }
           }
         },
+        "_row_num": 13
+      },
+      {
+        "clause": "end screen",
+        "_row_num": 14
+      },
+      {
+        "clause": "if",
+        "condition": "data('ASSISTENTE') == null",
+        "_row_num": 15
+      },
+      {
+        "clause": "begin screen",
         "_row_num": 16
       },
       {
-        "type": "select_one",
-        "values_list": "YesNoUM",
-        "name": "COMSUP",
+        "type": "integer",
+        "name": "ASSIST",
         "display": {
           "prompt": {
             "text": {
-              "english": "Does the child recieve supplementary foods?",
-              "default": "A criança recebeu alimentos complementares?"
+              "english": "Codigo de assistente na data {{data.CONT}}",
+              "default": "Codigo de assistente na data {{data.CONT}}"
             }
           }
         },
         "_row_num": 17
       },
       {
-        "clause": "if",
-        "condition": "data('COMSUP') == '1'",
-        "_row_num": 18
-      },
-      {
-        "type": "adate",
-        "name": "DACOMSUP",
-        "display": {
-          "prompt": {
-            "text": {
-              "english": "Date of starting supplementary feeding",
-              "default": "Data de início da alimentação suplementar"
-            }
-          },
-          "constraint_message": {
-            "text": {
-              "english": "The date of starting supplementary feeding cannot be in the future",
-              "default": "A data de início da alimentação suplementar não pode ser no futuro"
-            }
-          },
-          "adate": {
-            "helperText": false
-          }
-        },
-        "constraint": "adate.diffInDays(data('DATEX'), data('DACOMSUP'))<1 || adate.hasUncertainty(data('DACOMSUP'))",
+        "clause": "end screen",
         "_row_num": 19
       },
       {
-        "type": "select_multiple",
-        "values_list": "dontknowdate",
-        "name": "dacomsupns",
+        "clause": "end if",
         "_row_num": 20
       },
       {
-        "clause": "if",
-        "condition": "data('dacomsupns')  == \"D:NS,M:NS,Y:NS\"  || data('DACOMSUP')  == \"D:NS,M:NS,Y:NS\"",
+        "clause": "end if",
         "_row_num": 21
       },
       {
-        "type": "integer",
-        "name": "IDCOMSUP",
-        "display": {
-          "prompt": {
-            "text": {
-              "english": "Age of starting supplementary feeding in months",
-              "default": "Idade de início da alimentação suplementar em meses"
-            }
-          }
-        },
+        "clause": "begin screen",
         "_row_num": 22
       },
       {
-        "type": "assign",
-        "name": "DACOMSUP",
-        "calculation": "data('dacomsupns')",
+        "type": "text",
+        "name": "OBS",
+        "display": {
+          "prompt": {
+            "text": {
+              "english": "Observations",
+              "default": "Observações"
+            }
+          }
+        },
         "_row_num": 23
       },
       {
-        "clause": "end if",
+        "clause": "end screen",
         "_row_num": 24
-      },
-      {
-        "clause": "if",
-        "condition": "data('dacomsupns')  == \"D:1,M:1,Y:1955\"",
-        "_row_num": 25
-      },
-      {
-        "type": "assign",
-        "name": "DACOMSUP",
-        "calculation": "data('dacomsupns')",
-        "_row_num": 26
-      },
-      {
-        "clause": "end if",
-        "_row_num": 27
-      },
-      {
-        "clause": "end if",
-        "_row_num": 28
-      },
-      {
-        "clause": "end screen",
-        "_row_num": 29
-      },
-      {
-        "clause": "end if",
-        "_row_num": 30
-      },
-      {
-        "clause": "if",
-        "condition": "data('E_PARMAM') == '1'",
-        "_row_num": 31
-      },
-      {
-        "clause": "begin screen",
-        "_row_num": 32
-      },
-      {
-        "type": "note",
-        "display": {
-          "prompt": {
-            "text": {
-              "english": "Par Mamar:",
-              "default": "Par Mamar:"
-            }
-          }
-        },
-        "_row_num": 33
-      },
-      {
-        "type": "select_one",
-        "values_list": "YesNoUM",
-        "name": "PARMAM",
-        "display": {
-          "prompt": {
-            "text": {
-              "english": "Has the child stopped breastfeeding?",
-              "default": "A criança parou de tomar leite (amamentação)?"
-            }
-          }
-        },
-        "_row_num": 34
-      },
-      {
-        "clause": "if",
-        "condition": "data('PARMAM') == '1'",
-        "_row_num": 35
-      },
-      {
-        "type": "adate",
-        "name": "DAPAMA",
-        "display": {
-          "prompt": {
-            "text": {
-              "english": "Date of stopping breastfeeding",
-              "default": "Data de interrupção da amamentação"
-            }
-          },
-          "constraint_message": {
-            "text": {
-              "english": "The date of stopping breastfeeding cannot be in the future",
-              "default": "A data de interrupção da amamentação não pode ser no futuro"
-            }
-          },
-          "adate": {
-            "helperText": false
-          }
-        },
-        "constraint": "adate.diffInDays(data('DATEX'), data('DAPAMA'))<1 || adate.hasUncertainty(data('DAPAMA'))",
-        "_row_num": 36
-      },
-      {
-        "type": "select_multiple",
-        "values_list": "dontknowdate",
-        "name": "dapamans",
-        "_row_num": 37
-      },
-      {
-        "clause": "if",
-        "condition": "data('dapamans') == \"D:NS,M:NS,Y:NS\" || data('DAPAMA') == \"D:NS,M:NS,Y:NS\"",
-        "_row_num": 38
-      },
-      {
-        "type": "integer",
-        "name": "IDPAMA",
-        "display": {
-          "prompt": {
-            "text": {
-              "english": "Age of stopping breastfeeding in months",
-              "default": "Idade de interrupção da amamentação em meses"
-            }
-          }
-        },
-        "_row_num": 39
-      },
-      {
-        "type": "assign",
-        "name": "DAPAMA",
-        "calculation": "data('dapamans')",
-        "_row_num": 40
-      },
-      {
-        "clause": "end if",
-        "_row_num": 41
-      },
-      {
-        "clause": "if",
-        "condition": "data('dapamans') == \"D:1,M:1,Y:1955\"",
-        "_row_num": 42
-      },
-      {
-        "type": "assign",
-        "name": "DAPAMA",
-        "calculation": "data('dapamans')",
-        "_row_num": 43
-      },
-      {
-        "clause": "end if",
-        "_row_num": 44
-      },
-      {
-        "clause": "end if",
-        "_row_num": 45
-      },
-      {
-        "clause": "end screen",
-        "_row_num": 46
-      },
-      {
-        "clause": "end if",
-        "_row_num": 47
-      }
-    ],
-    "choices": [
-      {
-        "choice_list_name": "YesNoUM",
-        "data_value": "1",
-        "display": {
-          "title": {
-            "text": {
-              "english": "Yes",
-              "default": "Sim"
-            }
-          }
-        },
-        "_row_num": 2
-      },
-      {
-        "choice_list_name": "YesNoUM",
-        "data_value": "2",
-        "display": {
-          "title": {
-            "text": {
-              "english": "No",
-              "default": "Não"
-            }
-          }
-        },
-        "_row_num": 3
-      },
-      {
-        "choice_list_name": "YesNoUM",
-        "data_value": "3",
-        "display": {
-          "title": {
-            "text": {
-              "english": "Don't know",
-              "default": "Não sabe"
-            }
-          }
-        },
-        "_row_num": 4
-      },
-      {
-        "choice_list_name": "YesNoUM",
-        "data_value": "9",
-        "display": {
-          "title": {
-            "text": {
-              "english": "Missing information",
-              "default": "Falta informação"
-            }
-          }
-        },
-        "_row_num": 5
-      },
-      {
-        "choice_list_name": "dontknowdate",
-        "data_value": "D:NS,M:NS,Y:NS",
-        "display": {
-          "title": {
-            "text": {
-              "english": "Don't know the date",
-              "default": "Não sabe a data"
-            }
-          }
-        },
-        "_row_num": 6
-      },
-      {
-        "choice_list_name": "dontknowdate",
-        "data_value": "D:1,M:1,Y:1955",
-        "display": {
-          "title": {
-            "text": {
-              "english": "Missing information",
-              "default": "Falta informação"
-            }
-          }
-        },
-        "_row_num": 7
-      }
-    ],
-    "calculates": [
-      {
-        "calculation_name": "displayREGDIA",
-        "calculation": "adate.display(data('REGDIA'))",
-        "_row_num": 2
-      },
-      {
-        "calculation_name": "displayDNASC",
-        "calculation": "adate.display(data('DNASC'))",
-        "_row_num": 3
-      },
-      {
-        "calculation_name": "displayDATEX",
-        "calculation": "adate.display(data('DATEX'))",
-        "_row_num": 4
       }
     ],
     "prompt_types": [
+      {
+        "prompt_type_name": "custom_date",
+        "type": "string",
+        "elementType": "date",
+        "comment": "Makes the date widget DD/MM/YYYY",
+        "_row_num": 2
+      },
+      {
+        "prompt_type_name": "async_assign_date",
+        "type": "date",
+        "_row_num": 3
+      },
       {
         "prompt_type_name": "adate",
         "type": "string",
         "elementType": "string",
         "comment": "Save only mm.dd.yyyy with support for ?? at all positions",
+        "_row_num": 4
+      }
+    ],
+    "choices": [
+      {
+        "choice_list_name": "seenform",
+        "data_value": "1",
+        "display": {
+          "title": {
+            "text": {
+              "english": "Vi",
+              "default": "Vi"
+            }
+          }
+        },
         "_row_num": 2
+      },
+      {
+        "choice_list_name": "seenform",
+        "data_value": "2",
+        "display": {
+          "title": {
+            "text": {
+              "english": "Localizou pasta - sem ficha",
+              "default": "Localizou pasta - sem ficha"
+            }
+          }
+        },
+        "_row_num": 3
+      },
+      {
+        "choice_list_name": "seenform",
+        "data_value": "3",
+        "display": {
+          "title": {
+            "text": {
+              "english": "Nao localizou pasta",
+              "default": "Nao localizou pasta"
+            }
+          }
+        },
+        "_row_num": 4
+      },
+      {
+        "choice_list_name": "info",
+        "data_value": "1",
+        "display": {
+          "title": {
+            "text": {
+              "english": "F.I.",
+              "default": "F.I."
+            }
+          }
+        },
+        "_row_num": 7
+      },
+      {
+        "choice_list_name": "info",
+        "data_value": "2",
+        "display": {
+          "title": {
+            "text": {
+              "english": "NV / NVC",
+              "default": "NV / NVC"
+            }
+          }
+        },
+        "_row_num": 8
+      },
+      {
+        "choice_list_name": "info",
+        "data_value": "3",
+        "display": {
+          "title": {
+            "text": {
+              "english": "\" - \"",
+              "default": "\" - \""
+            }
+          }
+        },
+        "_row_num": 9
+      },
+      {
+        "choice_list_name": "info",
+        "data_value": "4",
+        "display": {
+          "title": {
+            "text": {
+              "english": "I",
+              "default": "I"
+            }
+          }
+        },
+        "_row_num": 10
+      },
+      {
+        "choice_list_name": "info",
+        "data_value": "5",
+        "display": {
+          "title": {
+            "text": {
+              "english": "NS",
+              "default": "NS"
+            }
+          }
+        },
+        "_row_num": 11
+      },
+      {
+        "choice_list_name": "info",
+        "data_value": "6",
+        "display": {
+          "title": {
+            "text": {
+              "english": "F.I. VC",
+              "default": "F.I. VC"
+            }
+          }
+        },
+        "_row_num": 12
+      },
+      {
+        "choice_list_name": "info",
+        "data_value": "7",
+        "display": {
+          "title": {
+            "text": {
+              "english": "NT.C / NTC",
+              "default": "NT.C / NTC"
+            }
+          }
+        },
+        "_row_num": 13
+      },
+      {
+        "choice_list_name": "info",
+        "data_value": "8",
+        "display": {
+          "title": {
+            "text": {
+              "english": "S.I.",
+              "default": "S.I."
+            }
+          }
+        },
+        "_row_num": 14
+      },
+      {
+        "choice_list_name": "info",
+        "data_value": "9",
+        "display": {
+          "title": {
+            "text": {
+              "english": "NV. na C.",
+              "default": "NV. na C."
+            }
+          }
+        },
+        "_row_num": 15
+      },
+      {
+        "choice_list_name": "info",
+        "data_value": "10",
+        "display": {
+          "title": {
+            "text": {
+              "english": "\"00\"",
+              "default": "\"00\""
+            }
+          }
+        },
+        "_row_num": 16
+      },
+      {
+        "choice_list_name": "info",
+        "data_value": "11",
+        "display": {
+          "title": {
+            "text": {
+              "english": "n tem na carta",
+              "default": "n tem na carta"
+            }
+          }
+        },
+        "_row_num": 17
       }
     ],
     "model": [
       {
-        "name": "DATEX",
-        "type": "adate",
+        "name": "REG",
+        "type": "integer",
         "isSessionVariable": false,
         "_row_num": 2
       },
       {
-        "name": "DATEX_N",
-        "type": "integer",
+        "name": "TAB",
+        "type": "text",
         "isSessionVariable": false,
         "_row_num": 3
       },
       {
-        "name": "DNASC",
-        "type": "adate",
+        "name": "NOC",
+        "type": "integer",
         "isSessionVariable": false,
         "_row_num": 4
       },
@@ -579,112 +470,76 @@
         "_row_num": 6
       },
       {
-        "name": "NOC",
-        "type": "integer",
+        "name": "REGDIA",
+        "type": "adate",
         "isSessionVariable": false,
         "_row_num": 7
-      },
-      {
-        "name": "NOMECRI",
-        "type": "text",
-        "isSessionVariable": false,
-        "_row_num": 8
       },
       {
         "name": "NOMEMAE",
         "type": "text",
         "isSessionVariable": false,
+        "_row_num": 8
+      },
+      {
+        "name": "CONT",
+        "type": "adate",
+        "isSessionVariable": false,
         "_row_num": 9
       },
       {
-        "name": "REG",
-        "type": "integer",
+        "name": "LMP_CARD",
+        "type": "text",
         "isSessionVariable": false,
         "_row_num": 10
       },
       {
-        "name": "REGDIA",
-        "type": "adate",
+        "name": "NOME",
+        "type": "text",
         "isSessionVariable": false,
         "_row_num": 11
       },
       {
-        "name": "REGIDC",
-        "type": "integer",
+        "name": "DNASC",
+        "type": "adate",
         "isSessionVariable": false,
         "_row_num": 12
       },
       {
-        "name": "TAB",
-        "type": "integer",
+        "name": "REGIDMAE",
+        "type": "text",
         "isSessionVariable": false,
         "_row_num": 13
       },
       {
-        "name": "COMSUP",
-        "type": "select_one",
+        "name": "REGIDC",
+        "type": "text",
+        "isSessionVariable": false,
+        "_row_num": 14
+      },
+      {
+        "name": "OBS",
+        "type": "text",
+        "isSessionVariable": false,
+        "_row_num": 15
+      },
+      {
+        "name": "VIFICHA",
+        "type": "text",
         "isSessionVariable": false,
         "_row_num": 16
       },
       {
-        "name": "DACOMSUP",
-        "type": "adate",
+        "name": "ASSISTENTE",
+        "type": "text",
         "isSessionVariable": false,
         "_row_num": 17
       },
       {
-        "name": "dacomsupns",
-        "type": "select_multiple",
-        "isSessionVariable": true,
+        "name": "ASSIST",
+        "type": "integer",
+        "isSessionVariable": false,
         "_row_num": 18
-      },
-      {
-        "name": "DAPAMA",
-        "type": "adate",
-        "isSessionVariable": false,
-        "_row_num": 19
-      },
-      {
-        "name": "dapamans",
-        "type": "select_multiple",
-        "isSessionVariable": true,
-        "_row_num": 20
-      },
-      {
-        "name": "E_COMSUP",
-        "type": "integer",
-        "isSessionVariable": false,
-        "_row_num": 21
-      },
-      {
-        "name": "E_PARMAM",
-        "type": "integer",
-        "isSessionVariable": false,
-        "_row_num": 22
-      },
-      {
-        "name": "ERROR",
-        "type": "integer",
-        "isSessionVariable": false,
-        "_row_num": 23
-      },
-      {
-        "name": "IDCOMSUP",
-        "type": "integer",
-        "isSessionVariable": false,
-        "_row_num": 24
-      },
-      {
-        "name": "IDPAMA",
-        "type": "integer",
-        "isSessionVariable": false,
-        "_row_num": 25
-      },
-      {
-        "name": "PARMAM",
-        "type": "select_one",
-        "isSessionVariable": false,
-        "_row_num": 26
       }
     ]
   },
@@ -712,7 +567,7 @@
       },
       "form_version": {
         "setting_name": "form_version",
-        "value": 60120,
+        "value": 20260224,
         "_row_num": 3
       },
       "table_id": {
@@ -725,8 +580,8 @@
         "display": {
           "title": {
             "text": {
-              "english": "Data cleaning - Parma and Comsup",
-              "default": "Limpeza - Parma and Comsup"
+              "english": "ParmaComsup",
+              "default": "ParmaComsup"
             }
           }
         },
@@ -763,7 +618,7 @@
       },
       "instance_name": {
         "setting_name": "instance_name",
-        "value": "NOMECRI",
+        "value": "VIFICHA",
         "_row_num": 9
       },
       "_locales": {
@@ -806,8 +661,8 @@
         "display": {
           "title": {
             "text": {
-              "english": "Data cleaning - Parma and Comsup",
-              "default": "Limpeza - Parma and Comsup"
+              "english": "ParmaComsup",
+              "default": "ParmaComsup"
             }
           }
         },
@@ -815,86 +670,190 @@
       }
     },
     "choices": {
-      "YesNoUM": [
+      "seenform": [
         {
-          "choice_list_name": "YesNoUM",
+          "choice_list_name": "seenform",
           "data_value": "1",
           "display": {
             "title": {
               "text": {
-                "english": "Yes",
-                "default": "Sim"
+                "english": "Vi",
+                "default": "Vi"
               }
             }
           },
           "_row_num": 2
         },
         {
-          "choice_list_name": "YesNoUM",
+          "choice_list_name": "seenform",
           "data_value": "2",
           "display": {
             "title": {
               "text": {
-                "english": "No",
-                "default": "Não"
+                "english": "Localizou pasta - sem ficha",
+                "default": "Localizou pasta - sem ficha"
               }
             }
           },
           "_row_num": 3
         },
         {
-          "choice_list_name": "YesNoUM",
+          "choice_list_name": "seenform",
           "data_value": "3",
           "display": {
             "title": {
               "text": {
-                "english": "Don't know",
-                "default": "Não sabe"
+                "english": "Nao localizou pasta",
+                "default": "Nao localizou pasta"
               }
             }
           },
           "_row_num": 4
-        },
-        {
-          "choice_list_name": "YesNoUM",
-          "data_value": "9",
-          "display": {
-            "title": {
-              "text": {
-                "english": "Missing information",
-                "default": "Falta informação"
-              }
-            }
-          },
-          "_row_num": 5
         }
       ],
-      "dontknowdate": [
+      "info": [
         {
-          "choice_list_name": "dontknowdate",
-          "data_value": "D:NS,M:NS,Y:NS",
+          "choice_list_name": "info",
+          "data_value": "1",
           "display": {
             "title": {
               "text": {
-                "english": "Don't know the date",
-                "default": "Não sabe a data"
-              }
-            }
-          },
-          "_row_num": 6
-        },
-        {
-          "choice_list_name": "dontknowdate",
-          "data_value": "D:1,M:1,Y:1955",
-          "display": {
-            "title": {
-              "text": {
-                "english": "Missing information",
-                "default": "Falta informação"
+                "english": "F.I.",
+                "default": "F.I."
               }
             }
           },
           "_row_num": 7
+        },
+        {
+          "choice_list_name": "info",
+          "data_value": "2",
+          "display": {
+            "title": {
+              "text": {
+                "english": "NV / NVC",
+                "default": "NV / NVC"
+              }
+            }
+          },
+          "_row_num": 8
+        },
+        {
+          "choice_list_name": "info",
+          "data_value": "3",
+          "display": {
+            "title": {
+              "text": {
+                "english": "\" - \"",
+                "default": "\" - \""
+              }
+            }
+          },
+          "_row_num": 9
+        },
+        {
+          "choice_list_name": "info",
+          "data_value": "4",
+          "display": {
+            "title": {
+              "text": {
+                "english": "I",
+                "default": "I"
+              }
+            }
+          },
+          "_row_num": 10
+        },
+        {
+          "choice_list_name": "info",
+          "data_value": "5",
+          "display": {
+            "title": {
+              "text": {
+                "english": "NS",
+                "default": "NS"
+              }
+            }
+          },
+          "_row_num": 11
+        },
+        {
+          "choice_list_name": "info",
+          "data_value": "6",
+          "display": {
+            "title": {
+              "text": {
+                "english": "F.I. VC",
+                "default": "F.I. VC"
+              }
+            }
+          },
+          "_row_num": 12
+        },
+        {
+          "choice_list_name": "info",
+          "data_value": "7",
+          "display": {
+            "title": {
+              "text": {
+                "english": "NT.C / NTC",
+                "default": "NT.C / NTC"
+              }
+            }
+          },
+          "_row_num": 13
+        },
+        {
+          "choice_list_name": "info",
+          "data_value": "8",
+          "display": {
+            "title": {
+              "text": {
+                "english": "S.I.",
+                "default": "S.I."
+              }
+            }
+          },
+          "_row_num": 14
+        },
+        {
+          "choice_list_name": "info",
+          "data_value": "9",
+          "display": {
+            "title": {
+              "text": {
+                "english": "NV. na C.",
+                "default": "NV. na C."
+              }
+            }
+          },
+          "_row_num": 15
+        },
+        {
+          "choice_list_name": "info",
+          "data_value": "10",
+          "display": {
+            "title": {
+              "text": {
+                "english": "\"00\"",
+                "default": "\"00\""
+              }
+            }
+          },
+          "_row_num": 16
+        },
+        {
+          "choice_list_name": "info",
+          "data_value": "11",
+          "display": {
+            "title": {
+              "text": {
+                "english": "n tem na carta",
+                "default": "n tem na carta"
+              }
+            }
+          },
+          "_row_num": 17
         }
       ]
     },
@@ -902,31 +861,10 @@
       "_tokens": {}
     },
     "queries": {},
-    "calculates": {
-      "displayREGDIA": {
-        "calculation_name": "displayREGDIA",
-        "calculation": "adate.display(data('REGDIA'))",
-        "_row_num": 2
-      },
-      "displayDNASC": {
-        "calculation_name": "displayDNASC",
-        "calculation": "adate.display(data('DNASC'))",
-        "_row_num": 3
-      },
-      "displayDATEX": {
-        "calculation_name": "displayDATEX",
-        "calculation": "adate.display(data('DATEX'))",
-        "_row_num": 4
-      }
-    },
+    "calculates": {},
     "model": {
-      "DATEX": {
-        "prompt_type_name": "adate",
-        "type": "string",
-        "elementType": "string",
-        "comment": "Save only mm.dd.yyyy with support for ?? at all positions",
-        "_row_num": 2,
-        "__rowNum__": 1,
+      "REG": {
+        "type": "integer",
         "_defn": [
           {
             "_row_num": 2,
@@ -934,10 +872,10 @@
           }
         ],
         "isSessionVariable": false,
-        "elementKey": "DATEX"
+        "elementKey": "REG"
       },
-      "DATEX_N": {
-        "type": "integer",
+      "TAB": {
+        "type": "string",
         "_defn": [
           {
             "_row_num": 3,
@@ -945,15 +883,10 @@
           }
         ],
         "isSessionVariable": false,
-        "elementKey": "DATEX_N"
+        "elementKey": "TAB"
       },
-      "DNASC": {
-        "prompt_type_name": "adate",
-        "type": "string",
-        "elementType": "string",
-        "comment": "Save only mm.dd.yyyy with support for ?? at all positions",
-        "_row_num": 2,
-        "__rowNum__": 1,
+      "NOC": {
+        "type": "integer",
         "_defn": [
           {
             "_row_num": 4,
@@ -961,7 +894,7 @@
           }
         ],
         "isSessionVariable": false,
-        "elementKey": "DNASC"
+        "elementKey": "NOC"
       },
       "MOR": {
         "type": "integer",
@@ -985,8 +918,13 @@
         "isSessionVariable": false,
         "elementKey": "MUL"
       },
-      "NOC": {
-        "type": "integer",
+      "REGDIA": {
+        "prompt_type_name": "adate",
+        "type": "string",
+        "elementType": "string",
+        "comment": "Save only mm.dd.yyyy with support for ?? at all positions",
+        "_row_num": 4,
+        "__rowNum__": 3,
         "_defn": [
           {
             "_row_num": 7,
@@ -994,9 +932,9 @@
           }
         ],
         "isSessionVariable": false,
-        "elementKey": "NOC"
+        "elementKey": "REGDIA"
       },
-      "NOMECRI": {
+      "NOMEMAE": {
         "type": "string",
         "_defn": [
           {
@@ -1005,10 +943,15 @@
           }
         ],
         "isSessionVariable": false,
-        "elementKey": "NOMECRI"
+        "elementKey": "NOMEMAE"
       },
-      "NOMEMAE": {
+      "CONT": {
+        "prompt_type_name": "adate",
         "type": "string",
+        "elementType": "string",
+        "comment": "Save only mm.dd.yyyy with support for ?? at all positions",
+        "_row_num": 4,
+        "__rowNum__": 3,
         "_defn": [
           {
             "_row_num": 9,
@@ -1016,26 +959,26 @@
           }
         ],
         "isSessionVariable": false,
-        "elementKey": "NOMEMAE"
+        "elementKey": "CONT"
       },
-      "REG": {
-        "type": "integer",
+      "LMP_CARD": {
+        "type": "string",
+        "valuesList": "info",
         "_defn": [
+          {
+            "_row_num": 13,
+            "section_name": "survey"
+          },
           {
             "_row_num": 10,
             "section_name": "model"
           }
         ],
         "isSessionVariable": false,
-        "elementKey": "REG"
+        "elementKey": "LMP_CARD"
       },
-      "REGDIA": {
-        "prompt_type_name": "adate",
+      "NOME": {
         "type": "string",
-        "elementType": "string",
-        "comment": "Save only mm.dd.yyyy with support for ?? at all positions",
-        "_row_num": 2,
-        "__rowNum__": 1,
         "_defn": [
           {
             "_row_num": 11,
@@ -1043,10 +986,15 @@
           }
         ],
         "isSessionVariable": false,
-        "elementKey": "REGDIA"
+        "elementKey": "NOME"
       },
-      "REGIDC": {
-        "type": "integer",
+      "DNASC": {
+        "prompt_type_name": "adate",
+        "type": "string",
+        "elementType": "string",
+        "comment": "Save only mm.dd.yyyy with support for ?? at all positions",
+        "_row_num": 4,
+        "__rowNum__": 3,
         "_defn": [
           {
             "_row_num": 12,
@@ -1054,10 +1002,10 @@
           }
         ],
         "isSessionVariable": false,
-        "elementKey": "REGIDC"
+        "elementKey": "DNASC"
       },
-      "TAB": {
-        "type": "integer",
+      "REGIDMAE": {
+        "type": "string",
         "_defn": [
           {
             "_row_num": 13,
@@ -1065,14 +1013,40 @@
           }
         ],
         "isSessionVariable": false,
-        "elementKey": "TAB"
+        "elementKey": "REGIDMAE"
       },
-      "COMSUP": {
+      "REGIDC": {
         "type": "string",
-        "valuesList": "YesNoUM",
         "_defn": [
           {
-            "_row_num": 17,
+            "_row_num": 14,
+            "section_name": "model"
+          }
+        ],
+        "isSessionVariable": false,
+        "elementKey": "REGIDC"
+      },
+      "OBS": {
+        "type": "string",
+        "_defn": [
+          {
+            "_row_num": 23,
+            "section_name": "survey"
+          },
+          {
+            "_row_num": 15,
+            "section_name": "model"
+          }
+        ],
+        "isSessionVariable": false,
+        "elementKey": "OBS"
+      },
+      "VIFICHA": {
+        "type": "string",
+        "valuesList": "seenform",
+        "_defn": [
+          {
+            "_row_num": 9,
             "section_name": "survey"
           },
           {
@@ -1081,38 +1055,24 @@
           }
         ],
         "isSessionVariable": false,
-        "elementKey": "COMSUP"
+        "elementKey": "VIFICHA"
       },
-      "DACOMSUP": {
-        "prompt_type_name": "adate",
+      "ASSISTENTE": {
         "type": "string",
-        "elementType": "string",
-        "comment": "Save only mm.dd.yyyy with support for ?? at all positions",
-        "_row_num": 2,
-        "__rowNum__": 1,
         "_defn": [
-          {
-            "_row_num": 19,
-            "section_name": "survey"
-          },
           {
             "_row_num": 17,
             "section_name": "model"
           }
         ],
         "isSessionVariable": false,
-        "elementKey": "DACOMSUP"
+        "elementKey": "ASSISTENTE"
       },
-      "dacomsupns": {
-        "type": "array",
-        "items": {
-          "type": "string",
-          "elementKey": "dacomsupns_items"
-        },
-        "valuesList": "dontknowdate",
+      "ASSIST": {
+        "type": "integer",
         "_defn": [
           {
-            "_row_num": 20,
+            "_row_num": 17,
             "section_name": "survey"
           },
           {
@@ -1120,127 +1080,8 @@
             "section_name": "model"
           }
         ],
-        "isSessionVariable": true,
-        "elementKey": "dacomsupns"
-      },
-      "DAPAMA": {
-        "prompt_type_name": "adate",
-        "type": "string",
-        "elementType": "string",
-        "comment": "Save only mm.dd.yyyy with support for ?? at all positions",
-        "_row_num": 2,
-        "__rowNum__": 1,
-        "_defn": [
-          {
-            "_row_num": 36,
-            "section_name": "survey"
-          },
-          {
-            "_row_num": 19,
-            "section_name": "model"
-          }
-        ],
         "isSessionVariable": false,
-        "elementKey": "DAPAMA"
-      },
-      "dapamans": {
-        "type": "array",
-        "items": {
-          "type": "string",
-          "elementKey": "dapamans_items"
-        },
-        "valuesList": "dontknowdate",
-        "_defn": [
-          {
-            "_row_num": 37,
-            "section_name": "survey"
-          },
-          {
-            "_row_num": 20,
-            "section_name": "model"
-          }
-        ],
-        "isSessionVariable": true,
-        "elementKey": "dapamans"
-      },
-      "E_COMSUP": {
-        "type": "integer",
-        "_defn": [
-          {
-            "_row_num": 21,
-            "section_name": "model"
-          }
-        ],
-        "isSessionVariable": false,
-        "elementKey": "E_COMSUP"
-      },
-      "E_PARMAM": {
-        "type": "integer",
-        "_defn": [
-          {
-            "_row_num": 22,
-            "section_name": "model"
-          }
-        ],
-        "isSessionVariable": false,
-        "elementKey": "E_PARMAM"
-      },
-      "ERROR": {
-        "type": "integer",
-        "_defn": [
-          {
-            "_row_num": 23,
-            "section_name": "model"
-          }
-        ],
-        "isSessionVariable": false,
-        "elementKey": "ERROR"
-      },
-      "IDCOMSUP": {
-        "type": "integer",
-        "_defn": [
-          {
-            "_row_num": 22,
-            "section_name": "survey"
-          },
-          {
-            "_row_num": 24,
-            "section_name": "model"
-          }
-        ],
-        "isSessionVariable": false,
-        "elementKey": "IDCOMSUP"
-      },
-      "IDPAMA": {
-        "type": "integer",
-        "_defn": [
-          {
-            "_row_num": 39,
-            "section_name": "survey"
-          },
-          {
-            "_row_num": 25,
-            "section_name": "model"
-          }
-        ],
-        "isSessionVariable": false,
-        "elementKey": "IDPAMA"
-      },
-      "PARMAM": {
-        "type": "string",
-        "valuesList": "YesNoUM",
-        "_defn": [
-          {
-            "_row_num": 34,
-            "section_name": "survey"
-          },
-          {
-            "_row_num": 26,
-            "section_name": "model"
-          }
-        ],
-        "isSessionVariable": false,
-        "elementKey": "PARMAM"
+        "elementKey": "ASSIST"
       }
     },
     "section_names": [
@@ -1258,8 +1099,8 @@
             "display": {
               "prompt": {
                 "text": {
-                  "english": "regidc: <b>{{data.REGIDC}}</b>",
-                  "default": "regidc: <b>{{data.REGIDC}}</b>"
+                  "english": "REG:  <b>{{data.REG}}</b>  TAB: <b>{{data.TAB}}</b>,     NOC: <b>{{data.NOC}}</b>",
+                  "default": "REG:  <b>{{data.REG}}</b>  TAB: <b>{{data.TAB}}</b>,     NOC: <b>{{data.NOC}}</b>"
                 }
               }
             },
@@ -1275,8 +1116,8 @@
             "display": {
               "prompt": {
                 "text": {
-                  "english": "reg: <b>{{data.REG}}</b>",
-                  "default": "reg: <b>{{data.REG}}</b>"
+                  "english": "REGDIA:  <b>{{data.REGDIA}}</b>",
+                  "default": "REGDIA:  <b>{{data.REGDIA}}</b>"
                 }
               }
             },
@@ -1292,8 +1133,8 @@
             "display": {
               "prompt": {
                 "text": {
-                  "english": "tab: <b>{{data.TAB}}</b>",
-                  "default": "tab: <b>{{data.TAB}}</b>"
+                  "english": "Nomemae: <b>{{data.NOMEMAE}}</b>",
+                  "default": "Nomemae: <b>{{data.NOMEMAE}}</b>"
                 }
               }
             },
@@ -1309,8 +1150,8 @@
             "display": {
               "prompt": {
                 "text": {
-                  "english": "mor: <b>{{data.MOR}}</b>",
-                  "default": "mor: <b>{{data.MOR}}</b>"
+                  "english": "DNASC:  <b>{{data.DNASC}}</b>",
+                  "default": "DNASC:  <b>{{data.DNASC}}</b>"
                 }
               }
             },
@@ -1326,8 +1167,8 @@
             "display": {
               "prompt": {
                 "text": {
-                  "english": "noc: <b>{{data.NOC}}</b>",
-                  "default": "noc: <b>{{data.NOC}}</b>"
+                  "english": "Nome: <b>{{data.NOME}}</b>",
+                  "default": "Nome: <b>{{data.NOME}}</b>"
                 }
               }
             },
@@ -1343,8 +1184,8 @@
             "display": {
               "prompt": {
                 "text": {
-                  "english": "nomecri: <b>{{data.NOMECRI}}</b>",
-                  "default": "nomecri: <b>{{data.NOMECRI}}</b>"
+                  "english": "Vi Ficha Gravida?",
+                  "default": "Vi Ficha Gravida?"
                 }
               }
             },
@@ -1356,273 +1197,82 @@
             "promptIdx": 5
           },
           {
-            "type": "note",
-            "display": {
-              "prompt": {
-                "text": {
-                  "english": "regdia: <b>{{calculates.displayREGDIA}}</b>",
-                  "default": "regdia: <b>{{calculates.displayREGDIA}}</b>"
-                }
-              }
-            },
+            "type": "select_one",
+            "values_list": "seenform",
+            "name": "VIFICHA",
             "_row_num": 9,
             "__rowNum__": 8,
             "_token_type": "prompt",
-            "_type": "note",
+            "_type": "select_one",
             "_branch_label_enclosing_screen": "survey/_screen2",
             "promptIdx": 6
           },
           {
-            "type": "note",
+            "type": "select_one_with_other",
+            "values_list": "info",
+            "name": "LMP_CARD",
             "display": {
               "prompt": {
                 "text": {
-                  "english": "dnasc: <b>{{calculates.displayDNASC}}</b>",
-                  "default": "dnasc: <b>{{calculates.displayDNASC}}</b>"
+                  "english": "Quali informacao sobre data ult mens?",
+                  "default": "Quali informacao sobre data ult mens?"
                 }
               }
             },
-            "_row_num": 10,
-            "__rowNum__": 9,
+            "_row_num": 13,
+            "__rowNum__": 12,
             "_token_type": "prompt",
-            "_type": "note",
-            "_branch_label_enclosing_screen": "survey/_screen2",
+            "_type": "select_one_with_other",
+            "_branch_label_enclosing_screen": "survey/_screen12",
             "promptIdx": 7
           },
           {
-            "type": "note",
+            "type": "integer",
+            "name": "ASSIST",
             "display": {
               "prompt": {
                 "text": {
-                  "english": "nomemae: <b>{{data.NOMEMAE}}</b>",
-                  "default": "nomemae: <b>{{data.NOMEMAE}}</b>"
-                }
-              }
-            },
-            "_row_num": 11,
-            "__rowNum__": 10,
-            "_token_type": "prompt",
-            "_type": "note",
-            "_branch_label_enclosing_screen": "survey/_screen2",
-            "promptIdx": 8
-          },
-          {
-            "type": "note",
-            "display": {
-              "prompt": {
-                "text": {
-                  "english": "datex: <b>{{calculates.displayDATEX}}</b>",
-                  "default": "datex: <b>{{calculates.displayDATEX}}</b>"
-                }
-              }
-            },
-            "_row_num": 12,
-            "__rowNum__": 11,
-            "_token_type": "prompt",
-            "_type": "note",
-            "_branch_label_enclosing_screen": "survey/_screen2",
-            "promptIdx": 9
-          },
-          {
-            "type": "note",
-            "display": {
-              "prompt": {
-                "text": {
-                  "english": "Com Sup.:",
-                  "default": "Com Sup.:"
-                }
-              }
-            },
-            "_row_num": 16,
-            "__rowNum__": 15,
-            "_token_type": "prompt",
-            "_type": "note",
-            "_branch_label_enclosing_screen": "survey/_screen15",
-            "promptIdx": 10
-          },
-          {
-            "type": "select_one",
-            "values_list": "YesNoUM",
-            "name": "COMSUP",
-            "display": {
-              "prompt": {
-                "text": {
-                  "english": "Does the child recieve supplementary foods?",
-                  "default": "A criança recebeu alimentos complementares?"
+                  "english": "Codigo de assistente na data {{data.CONT}}",
+                  "default": "Codigo de assistente na data {{data.CONT}}"
                 }
               }
             },
             "_row_num": 17,
             "__rowNum__": 16,
             "_token_type": "prompt",
-            "_type": "select_one",
-            "_branch_label_enclosing_screen": "survey/_screen15",
-            "promptIdx": 11
-          },
-          {
-            "type": "adate",
-            "name": "DACOMSUP",
-            "display": {
-              "prompt": {
-                "text": {
-                  "english": "Date of starting supplementary feeding",
-                  "default": "Data de início da alimentação suplementar"
-                }
-              },
-              "constraint_message": {
-                "text": {
-                  "english": "The date of starting supplementary feeding cannot be in the future",
-                  "default": "A data de início da alimentação suplementar não pode ser no futuro"
-                }
-              },
-              "adate": {
-                "helperText": false
-              }
-            },
-            "constraint": "adate.diffInDays(data('DATEX'), data('DACOMSUP'))<1 || adate.hasUncertainty(data('DACOMSUP'))",
-            "_row_num": 19,
-            "__rowNum__": 18,
-            "_token_type": "prompt",
-            "_type": "adate",
-            "_branch_label_enclosing_screen": "survey/_screen15",
-            "promptIdx": 12
-          },
-          {
-            "type": "select_multiple",
-            "values_list": "dontknowdate",
-            "name": "dacomsupns",
-            "_row_num": 20,
-            "__rowNum__": 19,
-            "_token_type": "prompt",
-            "_type": "select_multiple",
-            "_branch_label_enclosing_screen": "survey/_screen15",
-            "promptIdx": 13
-          },
-          {
-            "type": "integer",
-            "name": "IDCOMSUP",
-            "display": {
-              "prompt": {
-                "text": {
-                  "english": "Age of starting supplementary feeding in months",
-                  "default": "Idade de início da alimentação suplementar em meses"
-                }
-              }
-            },
-            "_row_num": 22,
-            "__rowNum__": 21,
-            "_token_type": "prompt",
             "_type": "integer",
-            "_branch_label_enclosing_screen": "survey/_screen15",
-            "promptIdx": 14
+            "_branch_label_enclosing_screen": "survey/_screen16",
+            "promptIdx": 8
           },
           {
-            "type": "note",
+            "type": "text",
+            "name": "OBS",
             "display": {
               "prompt": {
                 "text": {
-                  "english": "Par Mamar:",
-                  "default": "Par Mamar:"
+                  "english": "Observations",
+                  "default": "Observações"
                 }
               }
             },
-            "_row_num": 33,
-            "__rowNum__": 32,
+            "_row_num": 23,
+            "__rowNum__": 22,
             "_token_type": "prompt",
-            "_type": "note",
-            "_branch_label_enclosing_screen": "survey/_screen32",
-            "promptIdx": 15
-          },
-          {
-            "type": "select_one",
-            "values_list": "YesNoUM",
-            "name": "PARMAM",
-            "display": {
-              "prompt": {
-                "text": {
-                  "english": "Has the child stopped breastfeeding?",
-                  "default": "A criança parou de tomar leite (amamentação)?"
-                }
-              }
-            },
-            "_row_num": 34,
-            "__rowNum__": 33,
-            "_token_type": "prompt",
-            "_type": "select_one",
-            "_branch_label_enclosing_screen": "survey/_screen32",
-            "promptIdx": 16
-          },
-          {
-            "type": "adate",
-            "name": "DAPAMA",
-            "display": {
-              "prompt": {
-                "text": {
-                  "english": "Date of stopping breastfeeding",
-                  "default": "Data de interrupção da amamentação"
-                }
-              },
-              "constraint_message": {
-                "text": {
-                  "english": "The date of stopping breastfeeding cannot be in the future",
-                  "default": "A data de interrupção da amamentação não pode ser no futuro"
-                }
-              },
-              "adate": {
-                "helperText": false
-              }
-            },
-            "constraint": "adate.diffInDays(data('DATEX'), data('DAPAMA'))<1 || adate.hasUncertainty(data('DAPAMA'))",
-            "_row_num": 36,
-            "__rowNum__": 35,
-            "_token_type": "prompt",
-            "_type": "adate",
-            "_branch_label_enclosing_screen": "survey/_screen32",
-            "promptIdx": 17
-          },
-          {
-            "type": "select_multiple",
-            "values_list": "dontknowdate",
-            "name": "dapamans",
-            "_row_num": 37,
-            "__rowNum__": 36,
-            "_token_type": "prompt",
-            "_type": "select_multiple",
-            "_branch_label_enclosing_screen": "survey/_screen32",
-            "promptIdx": 18
-          },
-          {
-            "type": "integer",
-            "name": "IDPAMA",
-            "display": {
-              "prompt": {
-                "text": {
-                  "english": "Age of stopping breastfeeding in months",
-                  "default": "Idade de interrupção da amamentação em meses"
-                }
-              }
-            },
-            "_row_num": 39,
-            "__rowNum__": 38,
-            "_token_type": "prompt",
-            "_type": "integer",
-            "_branch_label_enclosing_screen": "survey/_screen32",
-            "promptIdx": 19
+            "_type": "text",
+            "_branch_label_enclosing_screen": "survey/_screen22",
+            "promptIdx": 9
           },
           {
             "_token_type": "prompt",
             "type": "contents",
             "_type": "contents",
-            "_row_num": 48,
-            "_branch_label_enclosing_screen": "survey/_screen48",
-            "promptIdx": 20
+            "_row_num": 25,
+            "_branch_label_enclosing_screen": "survey/_screen25",
+            "promptIdx": 10
           }
         ],
         "validation_tag_map": {
-          "finalize": [
-            12,
-            17
-          ]
+          "finalize": []
         },
         "operations": [
           {
@@ -1632,121 +1282,136 @@
             "_token_type": "begin_screen",
             "_end_screen_clause": {
               "clause": "end screen",
-              "_row_num": 13,
-              "__rowNum__": 12,
+              "_row_num": 10,
+              "__rowNum__": 9,
               "_token_type": "end_screen"
             },
-            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(0);\nactivePromptIndicies.push(1);\nactivePromptIndicies.push(2);\nactivePromptIndicies.push(3);\nactivePromptIndicies.push(4);\nactivePromptIndicies.push(5);\nactivePromptIndicies.push(6);\nactivePromptIndicies.push(7);\nactivePromptIndicies.push(8);\nactivePromptIndicies.push(9);\n\nreturn activePromptIndicies;\n}\n",
+            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(0);\nactivePromptIndicies.push(1);\nactivePromptIndicies.push(2);\nactivePromptIndicies.push(3);\nactivePromptIndicies.push(4);\nactivePromptIndicies.push(5);\nactivePromptIndicies.push(6);\n\nreturn activePromptIndicies;\n}\n",
             "operationIdx": 0
           },
           {
             "clause": "if",
-            "condition": "data('E_COMSUP') == '1'",
-            "_row_num": 14,
-            "__rowNum__": 13,
+            "condition": "data('VIFICHA') =='1'",
+            "_row_num": 11,
+            "__rowNum__": 10,
             "_token_type": "goto_label",
-            "_branch_label": "_then14",
+            "_branch_label": "_then11",
             "operationIdx": 1
           },
           {
             "clause": "end if",
             "_token_type": "goto_label",
-            "_branch_label": "_else30",
-            "_row_num": 30,
+            "_branch_label": "_else21",
+            "_row_num": 21,
             "operationIdx": 2
           },
           {
             "clause": "begin screen",
-            "_row_num": 15,
-            "__rowNum__": 14,
+            "_row_num": 12,
+            "__rowNum__": 11,
             "_token_type": "begin_screen",
             "_end_screen_clause": {
               "clause": "end screen",
-              "_row_num": 29,
-              "__rowNum__": 28,
+              "_row_num": 14,
+              "__rowNum__": 13,
               "_token_type": "end_screen"
             },
-            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(10);\nactivePromptIndicies.push(11);\nif (data('COMSUP') == '1') {\nactivePromptIndicies.push(12);\nactivePromptIndicies.push(13);\nif (data('dacomsupns')  == \"D:NS,M:NS,Y:NS\"  || data('DACOMSUP')  == \"D:NS,M:NS,Y:NS\") {\nactivePromptIndicies.push(14);\nassign('DACOMSUP', data('dacomsupns'));\n}\nif (data('dacomsupns')  == \"D:1,M:1,Y:1955\") {\nassign('DACOMSUP', data('dacomsupns'));\n}\n}\n\nreturn activePromptIndicies;\n}\n",
+            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(7);\n\nreturn activePromptIndicies;\n}\n",
             "operationIdx": 3
           },
           {
-            "clause": "end if",
+            "clause": "if",
+            "condition": "data('ASSISTENTE') == null",
+            "_row_num": 15,
+            "__rowNum__": 14,
             "_token_type": "goto_label",
-            "_branch_label": "_endif30",
-            "_row_num": 30,
+            "_branch_label": "_then15",
             "operationIdx": 4
           },
           {
-            "clause": "if",
-            "condition": "data('E_PARMAM') == '1'",
-            "_row_num": 31,
-            "__rowNum__": 30,
+            "clause": "end if",
             "_token_type": "goto_label",
-            "_branch_label": "_then31",
+            "_branch_label": "_else20",
+            "_row_num": 20,
             "operationIdx": 5
+          },
+          {
+            "clause": "begin screen",
+            "_row_num": 16,
+            "__rowNum__": 15,
+            "_token_type": "begin_screen",
+            "_end_screen_clause": {
+              "clause": "end screen",
+              "_row_num": 19,
+              "__rowNum__": 18,
+              "_token_type": "end_screen"
+            },
+            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(8);\n\nreturn activePromptIndicies;\n}\n",
+            "operationIdx": 6
           },
           {
             "clause": "end if",
             "_token_type": "goto_label",
-            "_branch_label": "_else47",
-            "_row_num": 47,
-            "operationIdx": 6
-          },
-          {
-            "clause": "begin screen",
-            "_row_num": 32,
-            "__rowNum__": 31,
-            "_token_type": "begin_screen",
-            "_end_screen_clause": {
-              "clause": "end screen",
-              "_row_num": 46,
-              "__rowNum__": 45,
-              "_token_type": "end_screen"
-            },
-            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(15);\nactivePromptIndicies.push(16);\nif (data('PARMAM') == '1') {\nactivePromptIndicies.push(17);\nactivePromptIndicies.push(18);\nif (data('dapamans') == \"D:NS,M:NS,Y:NS\" || data('DAPAMA') == \"D:NS,M:NS,Y:NS\") {\nactivePromptIndicies.push(19);\nassign('DAPAMA', data('dapamans'));\n}\nif (data('dapamans') == \"D:1,M:1,Y:1955\") {\nassign('DAPAMA', data('dapamans'));\n}\n}\n\nreturn activePromptIndicies;\n}\n",
+            "_branch_label": "_endif20",
+            "_row_num": 20,
             "operationIdx": 7
           },
           {
             "clause": "end if",
             "_token_type": "goto_label",
-            "_branch_label": "_endif47",
-            "_row_num": 47,
+            "_branch_label": "_endif21",
+            "_row_num": 21,
             "operationIdx": 8
+          },
+          {
+            "clause": "begin screen",
+            "_row_num": 22,
+            "__rowNum__": 21,
+            "_token_type": "begin_screen",
+            "_end_screen_clause": {
+              "clause": "end screen",
+              "_row_num": 24,
+              "__rowNum__": 23,
+              "_token_type": "end_screen"
+            },
+            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(9);\n\nreturn activePromptIndicies;\n}\n",
+            "operationIdx": 9
           },
           {
             "_token_type": "exit_section",
             "clause": "exit section",
-            "_row_num": 48,
-            "operationIdx": 9
+            "_row_num": 25,
+            "operationIdx": 10
           },
           {
-            "_row_num": 48,
+            "_row_num": 25,
             "_token_type": "begin_screen",
-            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(20);\n\nreturn activePromptIndicies;\n}\n",
+            "_screen_block": "function() {var activePromptIndicies = [];\nactivePromptIndicies.push(10);\n\nreturn activePromptIndicies;\n}\n",
             "screen": {
               "hideInBackHistory": true
             },
-            "operationIdx": 10
+            "operationIdx": 11
           },
           {
             "_token_type": "resume",
             "clause": "resume",
-            "_row_num": 48,
-            "operationIdx": 11
+            "_row_num": 25,
+            "operationIdx": 12
           }
         ],
         "branch_label_map": {
           "_screen2": 0,
-          "_then14": 3,
-          "_screen15": 3,
-          "_else30": 5,
-          "_endif30": 5,
-          "_then31": 7,
-          "_screen32": 7,
-          "_else47": 9,
-          "_endif47": 9,
-          "_contents": 10,
-          "_screen48": 10
+          "_then11": 3,
+          "_screen12": 3,
+          "_then15": 6,
+          "_screen16": 6,
+          "_else20": 8,
+          "_endif20": 8,
+          "_else21": 9,
+          "_endif21": 9,
+          "_screen22": 9,
+          "_contents": 11,
+          "_screen25": 11
         }
       },
       "initial": {
@@ -1779,8 +1444,8 @@
             "display": {
               "title": {
                 "text": {
-                  "english": "Data cleaning - Parma and Comsup",
-                  "default": "Limpeza - Parma and Comsup"
+                  "english": "ParmaComsup",
+                  "default": "ParmaComsup"
                 }
               }
             },
@@ -1931,13 +1596,8 @@
       }
     },
     "dataTableModel": {
-      "DATEX": {
-        "prompt_type_name": "adate",
-        "type": "string",
-        "elementType": "string",
-        "comment": "Save only mm.dd.yyyy with support for ?? at all positions",
-        "_row_num": 2,
-        "__rowNum__": 1,
+      "REG": {
+        "type": "integer",
         "_defn": [
           {
             "_row_num": 2,
@@ -1945,13 +1605,13 @@
           }
         ],
         "isSessionVariable": false,
-        "elementKey": "DATEX",
-        "elementName": "DATEX",
+        "elementKey": "REG",
+        "elementName": "REG",
         "elementSet": "data",
-        "elementPath": "DATEX"
+        "elementPath": "REG"
       },
-      "DATEX_N": {
-        "type": "integer",
+      "TAB": {
+        "type": "string",
         "_defn": [
           {
             "_row_num": 3,
@@ -1959,18 +1619,13 @@
           }
         ],
         "isSessionVariable": false,
-        "elementKey": "DATEX_N",
-        "elementName": "DATEX_N",
+        "elementKey": "TAB",
+        "elementName": "TAB",
         "elementSet": "data",
-        "elementPath": "DATEX_N"
+        "elementPath": "TAB"
       },
-      "DNASC": {
-        "prompt_type_name": "adate",
-        "type": "string",
-        "elementType": "string",
-        "comment": "Save only mm.dd.yyyy with support for ?? at all positions",
-        "_row_num": 2,
-        "__rowNum__": 1,
+      "NOC": {
+        "type": "integer",
         "_defn": [
           {
             "_row_num": 4,
@@ -1978,10 +1633,10 @@
           }
         ],
         "isSessionVariable": false,
-        "elementKey": "DNASC",
-        "elementName": "DNASC",
+        "elementKey": "NOC",
+        "elementName": "NOC",
         "elementSet": "data",
-        "elementPath": "DNASC"
+        "elementPath": "NOC"
       },
       "MOR": {
         "type": "integer",
@@ -2011,72 +1666,16 @@
         "elementSet": "data",
         "elementPath": "MUL"
       },
-      "NOC": {
-        "type": "integer",
-        "_defn": [
-          {
-            "_row_num": 7,
-            "section_name": "model"
-          }
-        ],
-        "isSessionVariable": false,
-        "elementKey": "NOC",
-        "elementName": "NOC",
-        "elementSet": "data",
-        "elementPath": "NOC"
-      },
-      "NOMECRI": {
-        "type": "string",
-        "_defn": [
-          {
-            "_row_num": 8,
-            "section_name": "model"
-          }
-        ],
-        "isSessionVariable": false,
-        "elementKey": "NOMECRI",
-        "elementName": "NOMECRI",
-        "elementSet": "data",
-        "elementPath": "NOMECRI"
-      },
-      "NOMEMAE": {
-        "type": "string",
-        "_defn": [
-          {
-            "_row_num": 9,
-            "section_name": "model"
-          }
-        ],
-        "isSessionVariable": false,
-        "elementKey": "NOMEMAE",
-        "elementName": "NOMEMAE",
-        "elementSet": "data",
-        "elementPath": "NOMEMAE"
-      },
-      "REG": {
-        "type": "integer",
-        "_defn": [
-          {
-            "_row_num": 10,
-            "section_name": "model"
-          }
-        ],
-        "isSessionVariable": false,
-        "elementKey": "REG",
-        "elementName": "REG",
-        "elementSet": "data",
-        "elementPath": "REG"
-      },
       "REGDIA": {
         "prompt_type_name": "adate",
         "type": "string",
         "elementType": "string",
         "comment": "Save only mm.dd.yyyy with support for ?? at all positions",
-        "_row_num": 2,
-        "__rowNum__": 1,
+        "_row_num": 4,
+        "__rowNum__": 3,
         "_defn": [
           {
-            "_row_num": 11,
+            "_row_num": 7,
             "section_name": "model"
           }
         ],
@@ -2086,11 +1685,110 @@
         "elementSet": "data",
         "elementPath": "REGDIA"
       },
-      "REGIDC": {
-        "type": "integer",
+      "NOMEMAE": {
+        "type": "string",
+        "_defn": [
+          {
+            "_row_num": 8,
+            "section_name": "model"
+          }
+        ],
+        "isSessionVariable": false,
+        "elementKey": "NOMEMAE",
+        "elementName": "NOMEMAE",
+        "elementSet": "data",
+        "elementPath": "NOMEMAE"
+      },
+      "CONT": {
+        "prompt_type_name": "adate",
+        "type": "string",
+        "elementType": "string",
+        "comment": "Save only mm.dd.yyyy with support for ?? at all positions",
+        "_row_num": 4,
+        "__rowNum__": 3,
+        "_defn": [
+          {
+            "_row_num": 9,
+            "section_name": "model"
+          }
+        ],
+        "isSessionVariable": false,
+        "elementKey": "CONT",
+        "elementName": "CONT",
+        "elementSet": "data",
+        "elementPath": "CONT"
+      },
+      "LMP_CARD": {
+        "type": "string",
+        "valuesList": "info",
+        "_defn": [
+          {
+            "_row_num": 13,
+            "section_name": "survey"
+          },
+          {
+            "_row_num": 10,
+            "section_name": "model"
+          }
+        ],
+        "isSessionVariable": false,
+        "elementKey": "LMP_CARD",
+        "elementName": "LMP_CARD",
+        "elementSet": "data",
+        "elementPath": "LMP_CARD"
+      },
+      "NOME": {
+        "type": "string",
+        "_defn": [
+          {
+            "_row_num": 11,
+            "section_name": "model"
+          }
+        ],
+        "isSessionVariable": false,
+        "elementKey": "NOME",
+        "elementName": "NOME",
+        "elementSet": "data",
+        "elementPath": "NOME"
+      },
+      "DNASC": {
+        "prompt_type_name": "adate",
+        "type": "string",
+        "elementType": "string",
+        "comment": "Save only mm.dd.yyyy with support for ?? at all positions",
+        "_row_num": 4,
+        "__rowNum__": 3,
         "_defn": [
           {
             "_row_num": 12,
+            "section_name": "model"
+          }
+        ],
+        "isSessionVariable": false,
+        "elementKey": "DNASC",
+        "elementName": "DNASC",
+        "elementSet": "data",
+        "elementPath": "DNASC"
+      },
+      "REGIDMAE": {
+        "type": "string",
+        "_defn": [
+          {
+            "_row_num": 13,
+            "section_name": "model"
+          }
+        ],
+        "isSessionVariable": false,
+        "elementKey": "REGIDMAE",
+        "elementName": "REGIDMAE",
+        "elementSet": "data",
+        "elementPath": "REGIDMAE"
+      },
+      "REGIDC": {
+        "type": "string",
+        "_defn": [
+          {
+            "_row_num": 14,
             "section_name": "model"
           }
         ],
@@ -2100,26 +1798,30 @@
         "elementSet": "data",
         "elementPath": "REGIDC"
       },
-      "TAB": {
-        "type": "integer",
+      "OBS": {
+        "type": "string",
         "_defn": [
           {
-            "_row_num": 13,
+            "_row_num": 23,
+            "section_name": "survey"
+          },
+          {
+            "_row_num": 15,
             "section_name": "model"
           }
         ],
         "isSessionVariable": false,
-        "elementKey": "TAB",
-        "elementName": "TAB",
+        "elementKey": "OBS",
+        "elementName": "OBS",
         "elementSet": "data",
-        "elementPath": "TAB"
+        "elementPath": "OBS"
       },
-      "COMSUP": {
+      "VIFICHA": {
         "type": "string",
-        "valuesList": "YesNoUM",
+        "valuesList": "seenform",
         "_defn": [
           {
-            "_row_num": 17,
+            "_row_num": 9,
             "section_name": "survey"
           },
           {
@@ -2128,49 +1830,30 @@
           }
         ],
         "isSessionVariable": false,
-        "elementKey": "COMSUP",
-        "elementName": "COMSUP",
+        "elementKey": "VIFICHA",
+        "elementName": "VIFICHA",
         "elementSet": "data",
-        "elementPath": "COMSUP"
+        "elementPath": "VIFICHA"
       },
-      "DACOMSUP": {
-        "prompt_type_name": "adate",
+      "ASSISTENTE": {
         "type": "string",
-        "elementType": "string",
-        "comment": "Save only mm.dd.yyyy with support for ?? at all positions",
-        "_row_num": 2,
-        "__rowNum__": 1,
         "_defn": [
-          {
-            "_row_num": 19,
-            "section_name": "survey"
-          },
           {
             "_row_num": 17,
             "section_name": "model"
           }
         ],
         "isSessionVariable": false,
-        "elementKey": "DACOMSUP",
-        "elementName": "DACOMSUP",
+        "elementKey": "ASSISTENTE",
+        "elementName": "ASSISTENTE",
         "elementSet": "data",
-        "elementPath": "DACOMSUP"
+        "elementPath": "ASSISTENTE"
       },
-      "dacomsupns": {
-        "type": "array",
-        "items": {
-          "type": "string",
-          "elementKey": "dacomsupns_items",
-          "elementName": "items",
-          "elementSet": "data",
-          "elementPath": "dacomsupns.items",
-          "isSessionVariable": true,
-          "notUnitOfRetention": true
-        },
-        "valuesList": "dontknowdate",
+      "ASSIST": {
+        "type": "integer",
         "_defn": [
           {
-            "_row_num": 20,
+            "_row_num": 17,
             "section_name": "survey"
           },
           {
@@ -2178,183 +1861,11 @@
             "section_name": "model"
           }
         ],
-        "isSessionVariable": true,
-        "elementKey": "dacomsupns",
-        "elementName": "dacomsupns",
-        "elementSet": "data",
-        "elementPath": "dacomsupns",
-        "listChildElementKeys": [
-          "dacomsupns_items"
-        ]
-      },
-      "DAPAMA": {
-        "prompt_type_name": "adate",
-        "type": "string",
-        "elementType": "string",
-        "comment": "Save only mm.dd.yyyy with support for ?? at all positions",
-        "_row_num": 2,
-        "__rowNum__": 1,
-        "_defn": [
-          {
-            "_row_num": 36,
-            "section_name": "survey"
-          },
-          {
-            "_row_num": 19,
-            "section_name": "model"
-          }
-        ],
         "isSessionVariable": false,
-        "elementKey": "DAPAMA",
-        "elementName": "DAPAMA",
+        "elementKey": "ASSIST",
+        "elementName": "ASSIST",
         "elementSet": "data",
-        "elementPath": "DAPAMA"
-      },
-      "dapamans": {
-        "type": "array",
-        "items": {
-          "type": "string",
-          "elementKey": "dapamans_items",
-          "elementName": "items",
-          "elementSet": "data",
-          "elementPath": "dapamans.items",
-          "isSessionVariable": true,
-          "notUnitOfRetention": true
-        },
-        "valuesList": "dontknowdate",
-        "_defn": [
-          {
-            "_row_num": 37,
-            "section_name": "survey"
-          },
-          {
-            "_row_num": 20,
-            "section_name": "model"
-          }
-        ],
-        "isSessionVariable": true,
-        "elementKey": "dapamans",
-        "elementName": "dapamans",
-        "elementSet": "data",
-        "elementPath": "dapamans",
-        "listChildElementKeys": [
-          "dapamans_items"
-        ]
-      },
-      "E_COMSUP": {
-        "type": "integer",
-        "_defn": [
-          {
-            "_row_num": 21,
-            "section_name": "model"
-          }
-        ],
-        "isSessionVariable": false,
-        "elementKey": "E_COMSUP",
-        "elementName": "E_COMSUP",
-        "elementSet": "data",
-        "elementPath": "E_COMSUP"
-      },
-      "E_PARMAM": {
-        "type": "integer",
-        "_defn": [
-          {
-            "_row_num": 22,
-            "section_name": "model"
-          }
-        ],
-        "isSessionVariable": false,
-        "elementKey": "E_PARMAM",
-        "elementName": "E_PARMAM",
-        "elementSet": "data",
-        "elementPath": "E_PARMAM"
-      },
-      "ERROR": {
-        "type": "integer",
-        "_defn": [
-          {
-            "_row_num": 23,
-            "section_name": "model"
-          }
-        ],
-        "isSessionVariable": false,
-        "elementKey": "ERROR",
-        "elementName": "ERROR",
-        "elementSet": "data",
-        "elementPath": "ERROR"
-      },
-      "IDCOMSUP": {
-        "type": "integer",
-        "_defn": [
-          {
-            "_row_num": 22,
-            "section_name": "survey"
-          },
-          {
-            "_row_num": 24,
-            "section_name": "model"
-          }
-        ],
-        "isSessionVariable": false,
-        "elementKey": "IDCOMSUP",
-        "elementName": "IDCOMSUP",
-        "elementSet": "data",
-        "elementPath": "IDCOMSUP"
-      },
-      "IDPAMA": {
-        "type": "integer",
-        "_defn": [
-          {
-            "_row_num": 39,
-            "section_name": "survey"
-          },
-          {
-            "_row_num": 25,
-            "section_name": "model"
-          }
-        ],
-        "isSessionVariable": false,
-        "elementKey": "IDPAMA",
-        "elementName": "IDPAMA",
-        "elementSet": "data",
-        "elementPath": "IDPAMA"
-      },
-      "PARMAM": {
-        "type": "string",
-        "valuesList": "YesNoUM",
-        "_defn": [
-          {
-            "_row_num": 34,
-            "section_name": "survey"
-          },
-          {
-            "_row_num": 26,
-            "section_name": "model"
-          }
-        ],
-        "isSessionVariable": false,
-        "elementKey": "PARMAM",
-        "elementName": "PARMAM",
-        "elementSet": "data",
-        "elementPath": "PARMAM"
-      },
-      "dacomsupns_items": {
-        "type": "string",
-        "elementKey": "dacomsupns_items",
-        "elementName": "items",
-        "elementSet": "data",
-        "elementPath": "dacomsupns.items",
-        "isSessionVariable": true,
-        "notUnitOfRetention": true
-      },
-      "dapamans_items": {
-        "type": "string",
-        "elementKey": "dapamans_items",
-        "elementName": "items",
-        "elementSet": "data",
-        "elementPath": "dapamans.items",
-        "isSessionVariable": true,
-        "notUnitOfRetention": true
+        "elementPath": "ASSIST"
       },
       "_id": {
         "type": "string",
@@ -2472,17 +1983,17 @@
     "properties": [
       {
         "_partition": "Column",
-        "_aspect": "COMSUP",
+        "_aspect": "LMP_CARD",
         "_key": "displayChoicesList",
         "_type": "object",
-        "_value": "[{\"choice_list_name\":\"YesNoUM\",\"data_value\":\"1\",\"display\":{\"title\":{\"text\":{\"english\":\"Yes\",\"default\":\"Sim\"}}},\"_row_num\":2},{\"choice_list_name\":\"YesNoUM\",\"data_value\":\"2\",\"display\":{\"title\":{\"text\":{\"english\":\"No\",\"default\":\"Não\"}}},\"_row_num\":3},{\"choice_list_name\":\"YesNoUM\",\"data_value\":\"3\",\"display\":{\"title\":{\"text\":{\"english\":\"Don't know\",\"default\":\"Não sabe\"}}},\"_row_num\":4},{\"choice_list_name\":\"YesNoUM\",\"data_value\":\"9\",\"display\":{\"title\":{\"text\":{\"english\":\"Missing information\",\"default\":\"Falta informação\"}}},\"_row_num\":5}]"
+        "_value": "[{\"choice_list_name\":\"info\",\"data_value\":\"1\",\"display\":{\"title\":{\"text\":{\"english\":\"F.I.\",\"default\":\"F.I.\"}}},\"_row_num\":7},{\"choice_list_name\":\"info\",\"data_value\":\"2\",\"display\":{\"title\":{\"text\":{\"english\":\"NV / NVC\",\"default\":\"NV / NVC\"}}},\"_row_num\":8},{\"choice_list_name\":\"info\",\"data_value\":\"3\",\"display\":{\"title\":{\"text\":{\"english\":\"\\\" - \\\"\",\"default\":\"\\\" - \\\"\"}}},\"_row_num\":9},{\"choice_list_name\":\"info\",\"data_value\":\"4\",\"display\":{\"title\":{\"text\":{\"english\":\"I\",\"default\":\"I\"}}},\"_row_num\":10},{\"choice_list_name\":\"info\",\"data_value\":\"5\",\"display\":{\"title\":{\"text\":{\"english\":\"NS\",\"default\":\"NS\"}}},\"_row_num\":11},{\"choice_list_name\":\"info\",\"data_value\":\"6\",\"display\":{\"title\":{\"text\":{\"english\":\"F.I. VC\",\"default\":\"F.I. VC\"}}},\"_row_num\":12},{\"choice_list_name\":\"info\",\"data_value\":\"7\",\"display\":{\"title\":{\"text\":{\"english\":\"NT.C / NTC\",\"default\":\"NT.C / NTC\"}}},\"_row_num\":13},{\"choice_list_name\":\"info\",\"data_value\":\"8\",\"display\":{\"title\":{\"text\":{\"english\":\"S.I.\",\"default\":\"S.I.\"}}},\"_row_num\":14},{\"choice_list_name\":\"info\",\"data_value\":\"9\",\"display\":{\"title\":{\"text\":{\"english\":\"NV. na C.\",\"default\":\"NV. na C.\"}}},\"_row_num\":15},{\"choice_list_name\":\"info\",\"data_value\":\"10\",\"display\":{\"title\":{\"text\":{\"english\":\"\\\"00\\\"\",\"default\":\"\\\"00\\\"\"}}},\"_row_num\":16},{\"choice_list_name\":\"info\",\"data_value\":\"11\",\"display\":{\"title\":{\"text\":{\"english\":\"n tem na carta\",\"default\":\"n tem na carta\"}}},\"_row_num\":17}]"
       },
       {
         "_partition": "Column",
-        "_aspect": "PARMAM",
+        "_aspect": "VIFICHA",
         "_key": "displayChoicesList",
         "_type": "object",
-        "_value": "[{\"choice_list_name\":\"YesNoUM\",\"data_value\":\"1\",\"display\":{\"title\":{\"text\":{\"english\":\"Yes\",\"default\":\"Sim\"}}},\"_row_num\":2},{\"choice_list_name\":\"YesNoUM\",\"data_value\":\"2\",\"display\":{\"title\":{\"text\":{\"english\":\"No\",\"default\":\"Não\"}}},\"_row_num\":3},{\"choice_list_name\":\"YesNoUM\",\"data_value\":\"3\",\"display\":{\"title\":{\"text\":{\"english\":\"Don't know\",\"default\":\"Não sabe\"}}},\"_row_num\":4},{\"choice_list_name\":\"YesNoUM\",\"data_value\":\"9\",\"display\":{\"title\":{\"text\":{\"english\":\"Missing information\",\"default\":\"Falta informação\"}}},\"_row_num\":5}]"
+        "_value": "[{\"choice_list_name\":\"seenform\",\"data_value\":\"1\",\"display\":{\"title\":{\"text\":{\"english\":\"Vi\",\"default\":\"Vi\"}}},\"_row_num\":2},{\"choice_list_name\":\"seenform\",\"data_value\":\"2\",\"display\":{\"title\":{\"text\":{\"english\":\"Localizou pasta - sem ficha\",\"default\":\"Localizou pasta - sem ficha\"}}},\"_row_num\":3},{\"choice_list_name\":\"seenform\",\"data_value\":\"3\",\"display\":{\"title\":{\"text\":{\"english\":\"Nao localizou pasta\",\"default\":\"Nao localizou pasta\"}}},\"_row_num\":4}]"
       },
       {
         "_partition": "FormType",
@@ -2510,7 +2021,7 @@
         "_aspect": "default",
         "_key": "displayName",
         "_type": "object",
-        "_value": "{\"text\":{\"english\":\"Data cleaning - Parma and Comsup\",\"default\":\"Limpeza - Parma and Comsup\"}}"
+        "_value": "{\"text\":{\"english\":\"ParmaComsup\",\"default\":\"ParmaComsup\"}}"
       }
     ]
   }
