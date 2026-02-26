@@ -74,9 +74,17 @@ function populateView() {
         
         // Check if already looked up
         var check = '';
-            if (this.VIFICHA == 1 & this.LMP_CARD != null & this.savepoint == "COMPLETE") {
+            if (this.VIFICHA == 1 && this.LMP_CARD != null && this.savepoint == "COMPLETE") {
                 check = "checked";
             };
+            if (this.VIFICHA == 2 && this.savepoint == "COMPLETE") {
+                check = "empty";
+            };
+            if (this.VIFICHA == 3 && this.savepoint == "COMPLETE") {
+                check = "where";
+            };
+
+
  
         // set text to display
         var displayText = setDisplayText(that);
