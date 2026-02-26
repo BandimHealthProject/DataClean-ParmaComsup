@@ -74,7 +74,7 @@ function populateView() {
         
         // Check if already looked up
         var check = '';
-            if (VIFICHA == 1 & LMP_CARD != null & savepoint == "COMPLETE") {
+            if (this.VIFICHA == 1 & this.LMP_CARD != null & this.savepoint == "COMPLETE") {
                 check = "checked";
             };
  
